@@ -1,0 +1,30 @@
+{
+  "name": "project-2-video-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amjad-H-Ali/Project-2-Video-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amjad-H-Ali/Project-2-Video-App/issues"
+  },
+  "homepage": "https://github.com/Amjad-H-Ali/Project-2-Video-App#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "express-ejs-layouts": "^2.4.0",
+    "express-session": "^1.15.6",
+    "gulp": "^3.9.1",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.15"
+  }
+}
