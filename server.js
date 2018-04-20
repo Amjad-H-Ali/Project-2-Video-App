@@ -4,14 +4,27 @@ const express = require('express');
 const app = express();
 //Set port on 3000
 const PORT = 3000;
+//Require controllers to use route
+const userController = require('./controllers/userController');
+const videoController = require('./controllers/videoController');
 
 
 //Requiring our DB
 require('./db/db');
 
+//MiddleWare
 
 
 
+
+
+
+
+
+
+// Controllers
+app.use('/user', userController);
+app.use('/video', videoController);
 
 
 
