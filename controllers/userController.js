@@ -53,7 +53,7 @@ router.get('/liked-videos', (req, res)=>{
 
 
 //POST route to add user after they register
-router.post('/register', async(req, res)=>{
+router.post('/register', async(req, res, next)=>{
 
 	//encrypt password of user
 	const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
@@ -80,7 +80,7 @@ router.post('/register', async(req, res)=>{
 	}
 
 	catch(err){
-		console.log(err);
+		next(err);
 	}	
 
 });
@@ -93,14 +93,20 @@ router.post('/register', async(req, res)=>{
 // //POST route to login current user
 // router.post('/login', async(req, res)=>{
 
+// 	try{
+		
 
+// 	}
+// 	catch(err){
+// 		next(err);
+// 	}
 
 
 
 // 	res.render('user/index.ejs', {
 // 		user:
-// 	})
-// })
+// 	});
+// });
 
 
 
