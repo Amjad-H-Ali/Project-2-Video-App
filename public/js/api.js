@@ -15,6 +15,7 @@ $('#button').on('click', (event) => {
 			key: "AIzaSyC_xdKtskgVo7e_iNelQcq3Ti6BkeDy3Sw",
 			q: keyword,
 			type: "video",
+			videoEmbeddable: true,
 			part: "snippet"
 		},
 		type: "GET",
@@ -24,13 +25,22 @@ $('#button').on('click', (event) => {
 			console.log("didn't work")
 		}
 	})
-
-	console.log('button was clicked')
 })
 
 
 function getVideos(data) {
-	console.log(data)
+	console.log(data);
 
-	console.log(data.items[0].id.videoId)
+	console.log(data.items[2].snippet.thumbnails.high.url);
+	console.log(data.items[2].snippet.title);
+
+	for(let i = 0; i < data.items.length; i++) {
+		console.log(data.items[i])
+	}
+
+	const thumbnailURL = data.items[2].snippet.thumbnails.medium.url;
+	const thumbnailImage = $('<img>').attr('src', thumbnailURL)
+	// const thumbnailImage = $('<img src= thumbnailURL />')
+
+	$('#theDiv').append(thumbnailImage)
 }
