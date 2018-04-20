@@ -74,8 +74,6 @@ router.post('/register', async(req, res, next)=>{
 		// creates new user based on form field from login-signup ejs and stores in DB using Schema
 		const user = await User.create(newUser);
 
-		console.log(user);
-
 		//Render index page and send property to ejs file
 		res.render('user/index.ejs', {
 			user: user
@@ -94,7 +92,7 @@ router.post('/register', async(req, res, next)=>{
 
 
 //POST route to login current user
-router.post('/login', async(req, res)=>{
+router.post('/login', async(req, res, next)=>{
 
 	try{
 		//Finding user in DB with the given username
@@ -110,8 +108,6 @@ router.post('/login', async(req, res)=>{
 			req.session.lastName = user.lastName;
 
 			req.session.logged = true;
-
-			console.log(req.session);
 
 			//render index page and send property to that file
 			res.render('user/index.ejs', {

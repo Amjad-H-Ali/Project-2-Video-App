@@ -30,6 +30,17 @@ app.use(session({
 	saveUninitialized: false,//The session is initialized once we add a property to it, then it will save
 	cookie:{secure:false} // When true, only sending cookies that are https 'secure'.
 }))	
+	//Middleware to prevent access to pages without being logged in
+app.use((req, res, next)=>{
+	//If user is not on the login-signup page while not logged in we will redirect them to the login-signup page
+	if(req.path !== '/' && !req.session.logged && req.method === 'GET'){
+		res.redirect('/');
+	}
+	else{
+		next();
+	}
+});	
+
 
 
 
