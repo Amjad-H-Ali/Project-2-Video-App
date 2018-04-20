@@ -31,7 +31,7 @@ app.use(methodOverride('_method'));
 
 
 // Controllers
-app.use('/user', userController);
+app.use('/', userController);
 app.use('/video', videoController);
 
 

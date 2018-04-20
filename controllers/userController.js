@@ -6,8 +6,19 @@ const router = express.Router();
 const User = require('../models/user');
 
 
-router.get('/', (req, res)=>{
+//Get route to render add page
+router.get('/add', (req, res)=>{
 	res.render('user/add.ejs');
+})
+
+//Get route to render login-signup page
+router.get('/', (req, res)=>{
+	res.render('user/login-signup.ejs')
+})
+
+//Get route to render index page
+router.get('/index', (req, res)=>{
+	res.render('user/index.ejs')
 })
 
 
