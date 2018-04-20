@@ -21,7 +21,7 @@ require('./db/db');
 app.use(express.static('public'));
 	//To parse data from POST requests
 app.use(bodyParser.urlencoded({extended: false}));
-	// To rerout POST routes to our PUT and DELETE routes
+	// To reroute POST requests to our PUT and DELETE routes
 app.use(methodOverride('_method'));	 	
 	//Session
 app.use(session({

@@ -49,6 +49,18 @@ router.get('/liked-videos', (req, res)=>{
 });
 
 
+//POST route to add user
+router.post('/', async(req, res)=>{
+
+	// creates new user based on form field from login-signup ejs and stores in DB using Schema
+	const user = await User.create(req.body);
+
+	console.log(user);
+
+	res.redirect('/')
+
+
+});
 
 
 
