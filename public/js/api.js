@@ -31,4 +31,6 @@ $('#button').on('click', (event) => {
 
 function getVideos(data) {
 	console.log(data)
+
+	console.log(data.items[0].id.videoId)
 }
