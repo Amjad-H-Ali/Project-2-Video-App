@@ -90,23 +90,48 @@ router.post('/register', async(req, res, next)=>{
 
 
 
-// //POST route to login current user
-// router.post('/login', async(req, res)=>{
+//POST route to login current user
+router.post('/login', async(req, res)=>{
 
-// 	try{
+	try{
+		//Finding user in DB with the given username
+		const user = await User.findOne({'userName': req.body.userName});
+		//Checking if user exists in our DB and comparing if password is the same as given password
+		if(user && bcrypt.compareSync(req.body.password, user.password)){
+			//If it does, we'll...
+			//Add information to our session object
+			req.session.userName = user.userName;
+
+			req.session.firstName = user.firstName;
+
+			req.session.lastName = user.lastName;
+
+			req.session.logged = true;
+
+			console.log(req.session);
+
+			res.render('user/index.ejs', {
+				user: user
+			});
+
+
+
+		}
+		//If either of the conditions are false
+		else{
+			res.redirect('/');
+			
+		}
 		
 
-// 	}
-// 	catch(err){
-// 		next(err);
-// 	}
+	}
+	catch(err){
+		next(err);
+	}
 
 
 
-// 	res.render('user/index.ejs', {
-// 		user:
-// 	});
-// });
+});
 
 
 
