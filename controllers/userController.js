@@ -45,11 +45,11 @@ router.get('/edit', (req, res)=>{
 
 //Get route to render liked-videos page
 router.get('/liked-videos', (req, res)=>{
-	res.render('user/liked-videos');
+	res.render('user/liked-videos.ejs');
 });
 
 
- 
+
 
 
 
