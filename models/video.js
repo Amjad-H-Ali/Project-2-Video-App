@@ -13,4 +13,4 @@ const videoSchema = new mongoose.Schema({
 });
 
 //Export for controllers to use
-module.exports = mongoose.model('video', userSchema);
+module.exports = mongoose.model('video', videoSchema);
