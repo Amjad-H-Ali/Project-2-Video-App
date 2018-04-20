@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 //Set port on 3000
 const PORT = 3000;
+//Require our middleware that we installed
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const session = require('express-session');
 //Require controllers to use route
 const userController = require('./controllers/userController');
 const videoController = require('./controllers/videoController');
@@ -13,8 +17,12 @@ const videoController = require('./controllers/videoController');
 require('./db/db');
 
 //MiddleWare
-
-
+	//For static assets
+app.use(express.static('public'));
+	//To parse data from POST requests
+app.use(bodyParser.urlencoded({extended: false}));
+	// To rerout POST routes to our PUT and DELETE routes
+app.use(methodOverride('_method'));	 	
 
 
 
