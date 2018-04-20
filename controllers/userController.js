@@ -76,7 +76,10 @@ router.post('/register', async(req, res, next)=>{
 
 		console.log(user);
 
-		res.redirect('/');
+		//Render index page and send property to ejs file
+		res.render('user/index.ejs', {
+			user: user
+		});
 	}
 
 	catch(err){
@@ -110,6 +113,7 @@ router.post('/login', async(req, res)=>{
 
 			console.log(req.session);
 
+			//render index page and send property to that file
 			res.render('user/index.ejs', {
 				user: user
 			});
@@ -117,10 +121,10 @@ router.post('/login', async(req, res)=>{
 
 
 		}
-		//If either of the conditions are false
+		//If either the username or password are false
 		else{
 			res.redirect('/');
-			
+
 		}
 		
 
