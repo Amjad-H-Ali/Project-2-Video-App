@@ -6,6 +6,11 @@ const app = express();
 const PORT = 3000;
 
 
+//Requiring our DB
+require('./db/db');
+
+
+
 
 
 
