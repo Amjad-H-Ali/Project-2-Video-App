@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 //Require models to use schema and db
 const User = require('../models/user');
+//Require bcrypt to encrypt password
+const bcrypt = require('bcrypt');
 
 
 //Routes
@@ -49,18 +51,57 @@ router.get('/liked-videos', (req, res)=>{
 });
 
 
-//POST route to add user
-router.post('/', async(req, res)=>{
 
-	// creates new user based on form field from login-signup ejs and stores in DB using Schema
-	const user = await User.create(req.body);
+//POST route to add user after they register
+router.post('/register', async(req, res)=>{
 
-	console.log(user);
+	//encrypt password of user
+	const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
-	res.redirect('/')
+	// Make object for our new user
+	const newUser = {
+		firstName: req.body.firstName,
 
+		lastName: req.body.lastName,
+
+		userName: req.body.userName,
+
+		password: passwordHash
+	};
+
+	try{
+
+		// creates new user based on form field from login-signup ejs and stores in DB using Schema
+		const user = await User.create(newUser);
+
+		console.log(user);
+
+		res.redirect('/');
+	}
+
+	catch(err){
+		console.log(err);
+	}	
 
 });
+
+
+
+
+
+
+// //POST route to login current user
+// router.post('/login', async(req, res)=>{
+
+
+
+
+
+// 	res.render('user/index.ejs', {
+// 		user:
+// 	})
+// })
+
 
 
 
