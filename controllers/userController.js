@@ -27,7 +27,12 @@ router.get('/', (req, res)=>{
 
 //Get route to render index page
 router.get('/index', (req, res)=>{
-	res.render('user/index.ejs');
+	res.render('user/index.ejs', {
+		userName: req.session.userName,
+		firstName: req.session.firstName,
+		lastName: req.session.lastName
+
+	});
 });
 
 
@@ -74,8 +79,18 @@ router.post('/register', async(req, res, next)=>{
 		// creates new user based on form field from login-signup ejs and stores in DB using Schema
 		const user = await User.create(newUser);
 
+		//Adding data to session object
+
+		req.session.userName = user.userName;
+
+		req.session.firstName = user.firstName;
+
+		req.session.lastName = user.lastName;
+
+		req.session.logged = true;
+
 		//Render index page and send property to ejs file
-		res.render('user/index.ejs', {
+		res.redirect('user/index.ejs', {
 			user: user
 		});
 	}
@@ -107,10 +122,11 @@ router.post('/login', async(req, res, next)=>{
 
 			req.session.lastName = user.lastName;
 
+
 			req.session.logged = true;
 
 			//render index page and send property to that file
-			res.render('user/index.ejs', {
+			res.redirect('user/index.ejs', {
 				user: user
 			});
 
