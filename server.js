@@ -23,7 +23,13 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 	// To rerout POST routes to our PUT and DELETE routes
 app.use(methodOverride('_method'));	 	
-
+	//Session
+app.use(session({
+	secret: 'Random String',
+	resave: false,
+	saveUninitialized: false,//The session is initialized once we add a property to it, then it will save
+	cookie:{secure:false} // When true, only sending cookies that are https 'secure'.
+}))	
 
 
 
