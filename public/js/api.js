@@ -28,6 +28,11 @@ $('#button').on('click', (event) => {
 })
 
 
+
+
+
+
+
 function getVideos(data) {
 	console.log(data);
 	//Iterating through items array of objects in data object
@@ -42,7 +47,12 @@ function getVideos(data) {
 		const btnThumbContain = $div.append(thumbnailImage).append($('<button>').attr('class','thumbNailBtn').text('share'))
 		// Appending images to div on our view page
 		$(btnThumbContain).appendTo('#thumbNails');
-	}
+	};
+
+
+
+
+
 
 
 	//Event lister on thumbnail button
@@ -50,21 +60,42 @@ function getVideos(data) {
 	$('.thumbNailBtn').on('click', (event)=>{
 		// When share btn clicked this form will pop up
 		$('.modal').css('display', 'block');
+		//Change action of form and pass in videoId to Post Route parameter
+		$('#postVidForm').attr('action',`/${$(event.target).parent()[0].id}`)
 
 		console.log($(event.target).parent()[0].id);
 	});
 
-	
+
+
+
+
+
 
 	//Event listener when pressing the close button on form
 	$('.close').on('click', (e)=>{
 		// close the form
 		$('.modal').css('display', 'none');
-	})
+	});
 
 
+	
 
 
 
 	$('#player').attr('src',"http://www.youtube.com/embed/"+data.items[0].id.videoId+"?enablejsapi=1&origin=http://example.com")
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
