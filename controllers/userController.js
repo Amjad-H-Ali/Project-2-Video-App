@@ -18,6 +18,8 @@ router.get('/add', (req, res)=>{
 
 
 
+
+
 //Get route to render login-signup page
 router.get('/', (req, res)=>{
 	res.render('user/login-signup.ejs');
@@ -25,8 +27,11 @@ router.get('/', (req, res)=>{
 
 
 
+
+
 //Get route to render index page
 router.get('/index', (req, res)=>{
+	// Send over current user properties to index page
 	res.render('user/index.ejs', {
 		userName: req.session.userName,
 		firstName: req.session.firstName,
@@ -37,10 +42,16 @@ router.get('/index', (req, res)=>{
 
 
 
+
+
+
 //Get route to render show page
 router.get('/show', (req, res)=>{
 	res.render('user/show.ejs');
 });
+
+
+
 
 
 
@@ -50,10 +61,37 @@ router.get('/edit', (req, res)=>{
 });
 
 
+
+
+
+
 //Get route to render liked-videos page
 router.get('/liked-videos', (req, res)=>{
 	res.render('user/liked-videos.ejs');
 });
+
+
+
+
+
+
+
+//GET Route to Logout User
+router.get('/logout', async(req, res)=>{
+	//Delete session of current user
+	await req.session.destroy();
+
+	//Redirect to login page	
+	res.redirect('/');
+
+})
+
+
+
+
+
+
+
 
 
 
@@ -90,9 +128,7 @@ router.post('/register', async(req, res, next)=>{
 		req.session.logged = true;
 
 		//Render index page and send property to ejs file
-		res.redirect('user/index.ejs', {
-			user: user
-		});
+		res.redirect('/index');
 	}
 
 	catch(err){
@@ -100,6 +136,12 @@ router.post('/register', async(req, res, next)=>{
 	}	
 
 });
+
+
+
+
+
+
 
 
 
@@ -126,9 +168,7 @@ router.post('/login', async(req, res, next)=>{
 			req.session.logged = true;
 
 			//render index page and send property to that file
-			res.redirect('user/index.ejs', {
-				user: user
-			});
+			res.redirect('/index');
 
 
 
@@ -148,6 +188,8 @@ router.post('/login', async(req, res, next)=>{
 
 
 });
+
+
 
 
 
