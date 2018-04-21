@@ -39,10 +39,12 @@ function getVideos(data) {
 		//Adding url as the src of imgages to make the thumbnails appear
 		const thumbnailImage = $('<img>').attr('src', thumbnailURL);
 		//Append thumbnail to div with a button
-		const btnThumbContain = $('div').append(thumbnailImage).append($('<button>').attr('src','thumbNailBtn').text('share'))
+		const btnThumbContain = $div.append(thumbnailImage).append($('<button>').attr('id','thumbNailBtn').text('share'))
 		// Appending images to div on our view page
 		$(btnThumbContain).appendTo('#thumbNails');
 	}
+
+
 
 
 
