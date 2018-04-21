@@ -9,9 +9,14 @@
 	<!-- search youtube api -->
 	<input type="search" name="youtubeVids" placeholder="Search For Videos...">
 	<button id='button'>Go!</button>
+	<!-- where youtube thumbnails go -->
+	<div id="thumbNails"></div>
 
-	<div id="theDiv"></div>
+	<iframe id="player" type="text/html" width="640" height="390"
+  frameborder="0"></iframe>
 </body>
+<!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- local js file for api -->
 <script src="/js/api.js"></script>
 </html>
