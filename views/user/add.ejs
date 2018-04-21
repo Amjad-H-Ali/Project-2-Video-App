@@ -3,6 +3,7 @@
 <head>
 	<title>Foo-App</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
 
 	
@@ -11,6 +12,17 @@
 	<button id='button'>Go!</button>
 	<!-- where youtube thumbnails go -->
 	<div id="thumbNails"></div>
+	<!-- popUp form -->
+	<div class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<form action='' method=''>
+				<input type="text" name="title" placeholder="Video Title">
+				<textarea type='text' name='description' placeholder="Video Description"></textarea>
+				<button>Post</button>
+			</form>
+		</div>
+	</div>
 
 	<iframe id="player" type="text/html" width="640" height="390"
   frameborder="0"></iframe>
