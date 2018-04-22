@@ -15,9 +15,34 @@
 
 	<!-- Iterate through all vids in db and show them on this page -->
 		<%for(let i = 0, len = videos.length; i < len; i ++ ){%>
-			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+				
+			<div>
+
+
+
+				<!-- video -->
+				<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+
+
+
+
+				<!-- like button -->
+				<form action='/like' method='POST'>
+					<button class='likeBtn'> <i class="fa fa-thumbs-o-up" style='color:blue;' ></i> </button>
+				</form>
+
+
+			</div>	
+				
 		<%}%>	
-</body>
+
+
+
+
+
+	<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src='/js/like.js'></script>
 
 </body>
 </html>

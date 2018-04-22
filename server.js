@@ -11,12 +11,17 @@ const session = require('express-session');
 //Require controllers to use route
 const userController = require('./controllers/userController');
 const videoController = require('./controllers/videoController');
+//Require for layout and link bootsrap
+const expressLayouts = require('express-ejs-layouts');
+
 
 
 //Requiring our DB
 require('./db/db');
 
 //MiddleWare
+
+
 	//For static assets
 app.use(express.static('public'));
 	//To parse data from POST requests
@@ -40,6 +45,10 @@ app.use((req, res, next)=>{
 		next();
 	}
 });	
+
+	// Middleware for layout
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 
 

@@ -45,7 +45,7 @@ function getVideos(data) {
 	for(let i = 0; i < data.items.length; i++) {
 
 
-		//Make a div that will contain a button and a thumbnail and set id to specific id of video we are iterating through
+		//Make a div that will contain a button and a thumbnail and set id to the associated id of video we are iterating through
 		const $div = $('<div>').attr('id',data.items[i].id.videoId);
 
 
