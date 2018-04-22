@@ -42,18 +42,30 @@ router.get('/', (req, res)=>{
 router.get('/index', async(req, res)=>{
 
 	// Find all videos in DB so we can see them on index page
-	const videos = await Video.find();
+	const videos = Video.find();
+
+
+	//Find current user
+	const user = User.findOne({'userName': req.session.userName});
+
+
+	const[foundVideos, foundUser] = await Promise.all([videos, user]);
 
 
 
-	// Send over current user properties to index page
+	// Send over current user and video properties to index page
 	res.render('user/index.ejs', {
-		userName: req.session.userName,
-		firstName: req.session.firstName,
-		lastName: req.session.lastName,
-		videos: videos
+
+		userName: foundUser.userName,
+		firstName: foundUser.firstName,
+		lastName: foundUser.lastName,
+		user: foundUser,
+		videos: foundVideos
 
 	});
+
+
+
 });
 
 
@@ -225,6 +237,12 @@ router.post('/login', async(req, res, next)=>{
 
 
 
+
+
+
+
+
+
 //POST route when user likes a video, we want to store the likes in DB
 router.post('/like', async(req, res, next)=>{
 	
@@ -235,11 +253,13 @@ router.post('/like', async(req, res, next)=>{
 		//find current user
 		const foundUser = await User.findOne({'userName':req.session.userName});
 
-
+		// If the vid is liked, add to array in DB
 		if(req.body.liked == 'true'){
 
 			foundUser.likedVideos.push(req.body.vidId);
 		}
+
+
 		else{
 
 			// Get the index of the unliked video in array
@@ -261,9 +281,14 @@ router.post('/like', async(req, res, next)=>{
 
 
 	catch(err){
+
 		next(err);
-	}	
-})
+	}
+
+
+
+
+});
 
 
 

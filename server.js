@@ -19,15 +19,23 @@ const expressLayouts = require('express-ejs-layouts');
 //Requiring our DB
 require('./db/db');
 
-//MiddleWare
 
+
+
+//MiddleWare
 
 	//For static assets
 app.use(express.static('public'));
+
+
 	//To parse data from POST requests
 app.use(bodyParser.urlencoded({extended: false}));
+
+
 	// To reroute POST requests to our PUT and DELETE routes
-app.use(methodOverride('_method'));	 	
+app.use(methodOverride('_method'));	 
+
+
 	//Session
 app.use(session({
 	secret: 'Random String',
@@ -35,6 +43,8 @@ app.use(session({
 	saveUninitialized: false,//The session is initialized once we add a property to it, then it will save
 	cookie:{secure:false} // When true, only sending cookies that are https 'secure'.
 }))	
+
+
 	//Middleware to prevent access to pages without being logged in
 app.use((req, res, next)=>{
 	//If user is not on the login-signup page while not logged in we will redirect them to the login-signup page
@@ -46,6 +56,7 @@ app.use((req, res, next)=>{
 	}
 });	
 
+
 	// Middleware for layout
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
@@ -56,9 +67,13 @@ app.use(expressLayouts);
 
 
 
+
 // Controllers
 app.use('/', userController);
 app.use('/video', videoController);
+
+
+
 
 
 //Set up server to listen on PORT 3000

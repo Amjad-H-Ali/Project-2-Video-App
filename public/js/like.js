@@ -3,18 +3,22 @@
 $('.likeBtn').on('click', (e)=>{
 
 
-
-
+	//We use ajax to POST a like/unlike to our DB to prevent 'page reload' as when a post is made the conventional way. No one wants a reloading page when hitting the like button
+	//Ajax POST rather than Form POST
 	$.ajax({
+		//POST method to add the like
 		type: 'POST',
 
+		//A POST to this route located in userControllers
 		url: '/like',
 
+		//Send over some data we will need
 		data: {
 
+			// the vid Id to know which vid was liked
 			vidId: $(e.currentTarget)[0].id,
 
-
+			//If the button is clicked/unclicked, we want to add/remove the vid from array in DB
 			liked: $(e.currentTarget).children().hasClass('fa-thumbs-o-up')
 
 		},
