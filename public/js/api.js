@@ -61,7 +61,7 @@ function getVideos(data) {
 		// When share btn clicked this form will pop up
 		$('.modal').css('display', 'block');
 		//Change action of form and pass in videoId to Post Route parameter
-		$('#postVidForm').attr('action',`/${$(event.target).parent()[0].id}`)
+		$('#postVidForm').attr('action',`/video/${$(event.target).parent()[0].id}`)
 
 		console.log($(event.target).parent()[0].id);
 	});
@@ -79,7 +79,7 @@ function getVideos(data) {
 	});
 
 
-	
+
 
 
 
