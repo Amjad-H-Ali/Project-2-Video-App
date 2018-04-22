@@ -17,11 +17,13 @@ const userSchema = new mongoose.Schema({
 		required: true
 	},
 
+
 	userName: {
 		type: String,
 		unique: true,
 		required: true
 	},
+
 
 	password:{
 		type: String,
@@ -29,7 +31,16 @@ const userSchema = new mongoose.Schema({
 		required: true
 	},
 
-	videos:[Video.schema]
+
+	videos:[Video.schema],
+
+
+	likedVideos:{
+		type: [String],
+
+	}
+
+
 
 });
 

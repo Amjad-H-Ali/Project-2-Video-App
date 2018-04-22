@@ -225,6 +225,45 @@ router.post('/login', async(req, res, next)=>{
 
 
 
+//POST route when user likes a video, we want to store the likes in DB
+router.post('/like', async(req, res, next)=>{
+	
+	try{
+		console.log(req.body.vidId);
+		console.log(req.body.liked);
+
+		//find current user
+		const foundUser = await User.findOne({'userName':req.session.userName});
+
+
+		if(req.body.liked == 'true'){
+
+			foundUser.likedVideos.push(req.body.vidId);
+		}
+		else{
+
+			// Get the index of the unliked video in array
+			const index = foundUser.likedVideos.indexOf(req.body.vidId);
+
+			// Remove it from the array in the DB
+			foundUser.likedVideos.splice(index, 1);
+
+		}
+
+
+		//Save changes
+		await foundUser.save();
+
+		//This is consoled.logged in browser
+		res.send('POSTED!');
+
+	}
+
+
+	catch(err){
+		next(err);
+	}	
+})
 
 
 
