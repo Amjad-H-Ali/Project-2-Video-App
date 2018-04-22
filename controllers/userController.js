@@ -66,8 +66,17 @@ router.get('/index', async(req, res)=>{
 
 
 //Get route to render show page
-router.get('/show', (req, res)=>{
-	res.render('user/show.ejs');
+router.get('/show', async(req, res)=>{
+	//Find current user by userName in session object
+	const foundUser = await User.findOne({'userName': req.session.userName});
+
+	//Sending property to show page
+	res.render('user/show.ejs', {
+
+		user: foundUser
+	});
+
+
 });
 
 
