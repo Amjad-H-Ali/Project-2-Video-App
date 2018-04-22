@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 //Require models to use schema and db
 const Video = require('../models/video');
+//Require models to use schema and db
+const User = require('../models/user');
 
 
 
@@ -27,7 +29,18 @@ router.post('/:id', async(req, res)=>{
 	}
 
 	// create vid in db
-	const video = await Video.create(newVid);
+	const createVideo = Video.create(newVid);
+
+	//find user who posted this video by userName in session object
+	const findUser = User.findOne({'userName': req.session.userName});
+
+	const [createdVideo, foundUser] = await Promise.all([createVideo, findUser]);
+
+	foundUser.videos.push(createdVideo);
+
+	await foundUser.save();
+
+
 
 	res.redirect('/index');
 

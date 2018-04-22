@@ -1,5 +1,7 @@
 //Require mongoose to use Schema constructor to model our data in the DB
 const mongoose = require('mongoose');
+//Require video model for schema
+const Video = require('./video.js');
 //Instantiate userSchema with the Schema constructor in mongoose
 const userSchema = new mongoose.Schema({
 
@@ -25,7 +27,9 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		unique: false,
 		required: true
-	}
+	},
+
+	videos:[Video.schema]
 
 });
 

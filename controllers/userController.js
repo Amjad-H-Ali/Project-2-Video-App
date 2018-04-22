@@ -13,6 +13,8 @@ const bcrypt = require('bcrypt');
 //Routes
 
 
+
+
 //Get route to render add page
 router.get('/add', (req, res)=>{
 	res.render('user/add.ejs');
@@ -22,10 +24,15 @@ router.get('/add', (req, res)=>{
 
 
 
+
+
 //Get route to render login-signup page
 router.get('/', (req, res)=>{
 	res.render('user/login-signup.ejs');
 });
+
+
+
 
 
 
@@ -54,10 +61,18 @@ router.get('/index', async(req, res)=>{
 
 
 
+
+
+
+
 //Get route to render show page
 router.get('/show', (req, res)=>{
 	res.render('user/show.ejs');
 });
+
+
+
+
 
 
 
