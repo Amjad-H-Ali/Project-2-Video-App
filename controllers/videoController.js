@@ -5,6 +5,14 @@ const router = express.Router();
 //Require models to use schema and db
 const Video = require('../models/video');
 
+
+
+
+
+
+
+
+
 //POST video to db --- this is coming from the add page
 router.post('/:id', async(req, res)=>{
 
@@ -21,7 +29,7 @@ router.post('/:id', async(req, res)=>{
 	// create vid in db
 	const video = await Video.create(newVid);
 
-	res.redirect('/');
+	res.redirect('/index');
 
 
 })

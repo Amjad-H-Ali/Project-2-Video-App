@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 //Require models to use schema and db
 const User = require('../models/user');
+//Require Video models to use schema and DB
+const Video = require('../models/video');
 //Require bcrypt to encrypt password
 const bcrypt = require('bcrypt');
 
@@ -30,12 +32,19 @@ router.get('/', (req, res)=>{
 
 
 //Get route to render index page
-router.get('/index', (req, res)=>{
+router.get('/index', async(req, res)=>{
+
+	// Find all videos in DB so we can see them on index page
+	const videos = await Video.find();
+
+
+
 	// Send over current user properties to index page
 	res.render('user/index.ejs', {
 		userName: req.session.userName,
 		firstName: req.session.firstName,
-		lastName: req.session.lastName
+		lastName: req.session.lastName,
+		videos: videos
 
 	});
 });

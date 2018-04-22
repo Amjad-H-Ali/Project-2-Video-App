@@ -10,5 +10,14 @@
 	<a href="/logout">log out</a>
 	<header>Temporary Message: Welcome <%=firstName%> <%=lastName%></header>
 
+
+
+
+	<!-- Iterate through all vids in db and show them on this page -->
+		<%for(let i = 0, len = videos.length; i < len; i ++ ){%>
+			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="640" height="390" frameborder="0"></iframe>
+		<%}%>	
+</body>
+
 </body>
 </html>
