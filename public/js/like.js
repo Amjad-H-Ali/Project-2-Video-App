@@ -36,16 +36,38 @@ $('.likeBtn').on('click', (e)=>{
 
 
 
-	//Fill in like button if clicked, if already filled, then unfill.
-	if( $(e.currentTarget).children().hasClass('fa-thumbs-o-up') || $(e.currentTarget).children().hasClass('fa-thumbs-up') ){
+	//Fill in like button if clicked
+	if( $(e.currentTarget).children().hasClass('fa-thumbs-o-up') ){
 		
+		//Fill in like Button
 		$(e.currentTarget).children().toggleClass('fa-thumbs-o-up');
 
 
 		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
 
-	}; 
+		//Also, increment number of likes
+		$(e.currentTarget).siblings()[1].innerText ++;
 
+	} 
+	//If already filled, then unfill.
+	else if ( $(e.currentTarget).children().hasClass('fa-thumbs-up')){
+
+		//Unfill like button
+		$(e.currentTarget).children().toggleClass('fa-thumbs-o-up');
+
+
+		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
+
+		//Also. decrement number of likes
+		$(e.currentTarget).siblings()[1].innerText --;
+
+	}
+
+
+
+
+
+	
 
 
 
@@ -57,4 +79,17 @@ $('.likeBtn').on('click', (e)=>{
 
 function success (data) {
 	console.log(data);
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+

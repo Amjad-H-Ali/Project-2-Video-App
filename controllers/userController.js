@@ -253,10 +253,22 @@ router.post('/like', async(req, res, next)=>{
 		//find current user
 		const foundUser = await User.findOne({'userName':req.session.userName});
 
+
+
+
+		const foundVid = await Video.findOne({'videoId': req.body.vidId});
+
+
+
+
+
 		// If the vid is liked, add to array in DB
 		if(req.body.liked == 'true'){
-
+			//Add to likedVids array in user model
 			foundUser.likedVideos.push(req.body.vidId);
+
+			//Also, increment the number of likes in the video model
+			foundVid.likes += 1;
 		}
 
 
@@ -268,11 +280,19 @@ router.post('/like', async(req, res, next)=>{
 			// Remove it from the array in the DB
 			foundUser.likedVideos.splice(index, 1);
 
+
+
+			//Also, decrement the number of likes in the video model
+			foundVid.likes -= 1;
+
 		}
 
 
 		//Save changes
 		await foundUser.save();
+
+
+		await foundVid.save();
 
 		//This is consoled.logged in browser
 		res.send('POSTED!');

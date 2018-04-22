@@ -21,9 +21,10 @@ const videoSchema = new mongoose.Schema({
 		required: true
 	},
 
-	like: {
+	likes: {
 		
-		type: Boolean,
+		type: Number,
+		default: 0
 		
 	}
 });
