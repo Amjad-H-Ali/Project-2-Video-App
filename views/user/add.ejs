@@ -3,12 +3,46 @@
 <head>
 	<title>Foo-App</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
+
+	
+	<!-- search youtube api -->
 	<input type="search" name="youtubeVids" placeholder="Search For Videos...">
 	<button id='button'>Go!</button>
 
-	<div id="theDiv"></div>
-</body>
+
+
+
+
+
+	<!-- where youtube thumbnails go -->
+	<div id="thumbNails"></div>
+
+
+
+
+
+	<!-- popUp form -->
+	<div class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<form id= postVidForm method='POST'>
+				<input type="text" name="title" placeholder="Video Title">
+				<textarea type='text' name='description' placeholder="Video Description"></textarea>
+				<button>Post</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+
+
+<!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- local js file for api -->
 <script src="/js/api.js"></script>
 </html>

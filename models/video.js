@@ -3,13 +3,30 @@ const mongoose = require('mongoose');
 //Instantiate videoSchema with the Schema constructor in mongoose
 const videoSchema = new mongoose.Schema({
 
-	title: String,
+	title:{
+		
+		type: String,
+		required: true
+	},
 
-	description: String,
+	description: {
+		
+		type: String,
+		required: true
+	},
 
-	link: String,
+	videoId: {
+		
+		type: String,
+		required: true
+	},
 
-	like: Boolean
+	likes: {
+		
+		type: Number,
+		default: 0
+		
+	}
 });
 
 //Export for controllers to use
