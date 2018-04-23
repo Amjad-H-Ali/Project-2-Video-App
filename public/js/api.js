@@ -39,30 +39,30 @@ function getVideos(data) {
 	console.log(data);
 
 	//Remove all thumbnails to prevent another search result to pile on top of other thumbnails
-	$('#thumbNails').empty();
+	$('#searchedVideos').empty();
 
 
 	//Iterating through items array of objects in data object
 	for(let i = 0; i < data.items.length; i++) {
 
-		//Make a div that will contain a button and a thumbnail and set id to the associated id of video we are iterating through
+		//Make a div that will contain a button and a video thumbnail and set id to the associated id of video we are iterating through
 		const $div = $('<div>').attr('id', data.items[i].id.videoId);
 
 
-		//Getting url from thumbnails within those objects
+		//Getting video Id from data set
 		const videoId = data.items[i].id.videoId;
 
 
-		//Adding url as the src of images to make the thumbnails appear
+		//Adding videoId as the src for iframe to make the video thumbnails appear
 		const video = $('<iframe>').attr('src', "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com");
 
 
-		//Append thumbnail to div with a button
+		//Append videos to the div with a button
 		const btnThumbContain = $div.append(video).append($('<button>').attr('class','thumbNailBtn').text('share'));
 
 
-		// // Appending images to div on our view page
-		$(btnThumbContain).appendTo('#thumbNails');
+		// // Appending videos to div on our search page
+		$(btnThumbContain).appendTo('#searchedVideos');
 	};
 
 
