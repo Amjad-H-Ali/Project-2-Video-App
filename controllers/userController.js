@@ -251,12 +251,15 @@ router.post('/like', async(req, res, next)=>{
 		console.log(req.body.liked);
 
 		//find current user
-		const foundUser = await User.findOne({'userName':req.session.userName});
+		const findUser = User.findOne({'userName':req.session.userName});
 
 
 
+		//Find video that was liked
+		const findVid = Video.findOne({'videoId': req.body.vidId});
 
-		const foundVid = await Video.findOne({'videoId': req.body.vidId});
+
+		const[foundUser, foundVid] = await Promise.all([findUser, findVid]);
 
 
 
