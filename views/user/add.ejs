@@ -1,48 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Foo-App</title>
+	<title>Videojo</title>
 </head>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
-
-	
-	<!-- search youtube api -->
 	<input type="search" name="youtubeVids" placeholder="Search For Videos...">
 	<button id='button'>Go!</button>
 
+<!-- 	<iframe id="player" type="text/html" src="" width="340" height="190" frameborder="0"></iframe> -->
 
+<div id="thumbNails"></div>
 
-
-
-
-	<!-- where youtube thumbnails go -->
-	<div id="thumbNails"></div>
-
-
-
-
-
-	<!-- popUp form -->
-	<div class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<form id= postVidForm method='POST'>
-				<input type="text" name="title" placeholder="Video Title">
-				<textarea type='text' name='description' placeholder="Video Description"></textarea>
-				<button>Post</button>
-			</form>
-		</div>
-	</div>
-
-
-
-
-
-
-
-<!-- jquery -->
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- local js file for api -->
 <script src="/js/api.js"></script>
 </html>
