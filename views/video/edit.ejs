@@ -15,7 +15,8 @@
 	<header>Edit Video Info</header>
 
 	<!-- form to edit video -->
-	<form action="/video/<%=videoId%>?_method=PUT" method="POST">
+	<div id="editFormPage" >
+		<form action="/video/<%=videoId%>?_method=PUT" method="POST">
 		Edit Video Title: <input type="text" name="title" placeholder="<%=title%>"> <br>
 
 		<div>
@@ -25,5 +26,7 @@
 		Edit Video Description: <textarea type='text' name="description" placeholder="<%=description%>"></textarea> <br/>
 		<button>Update</button>
 	</form>
+		
+	</div>
 </body>
 </html>
