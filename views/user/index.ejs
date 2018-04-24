@@ -6,8 +6,8 @@
 <body>
 	<!-- links to other pages -->
 	<a href="/add">Post A Video</a>
-	<a href="/show">My Profile</a>
-	<a href="/logout">log out</a>
+	<a href="/show">My Videos</a>
+	<a href="/logout">Log Out</a>
 	<header>Temporary Message: Welcome <%=firstName%> <%=lastName%></header>
 
 
@@ -16,7 +16,7 @@
 	<!-- Iterate through all vids in db and show them on this page -->
 		<%for(let i = 0, len = videos.length; i < len; i ++ ){%>
 			
-				<div>
+				<div id=vidContainer>
 
 					
 					<!-- video -->
