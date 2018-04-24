@@ -46,7 +46,9 @@ $('.likeBtn').on('click', (e)=>{
 		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
 
 		//Also, increment number of likes
-		$(e.currentTarget).siblings()[1].innerText ++;
+		$(e.currentTarget).siblings()[3].innerText ++;
+
+	
 
 	} 
 	//If already filled, then unfill.
@@ -59,7 +61,7 @@ $('.likeBtn').on('click', (e)=>{
 		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
 
 		//Also. decrement number of likes
-		$(e.currentTarget).siblings()[1].innerText --;
+		$(e.currentTarget).siblings()[3].innerText --;
 
 	}
 

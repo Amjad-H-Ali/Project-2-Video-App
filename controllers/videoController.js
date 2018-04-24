@@ -83,8 +83,8 @@ router.put('/:id', async (req, res) => {
 			
 			console.log(foundUser.videos.id)
 
-			foundUser.save()
-			foundVideo.save();
+			await foundUser.save()
+			await foundVideo.save();
 			res.redirect('/index')
 
 
