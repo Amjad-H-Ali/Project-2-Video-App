@@ -52,7 +52,6 @@ router.get('/index', async(req, res)=>{
 	const[foundVideos, foundUser] = await Promise.all([videos, user]);
 
 
-
 	// Send over current user and video properties to index page
 	res.render('user/index.ejs', {
 
@@ -315,10 +314,38 @@ router.post('/like', async(req, res, next)=>{
 
 
 
+router.delete('/:id', async(req, res)=>{
+
+	const findVideo = Video.findOne({'videoId': req.params.id});
+
+	const findUser = User.findOne({'userName': req.session.userName});
+
+	const [foundVideo, foundUser] = await Promise.all([findVideo, findUser]);
+
+	foundVideo.remove();
 
 
 
 
+
+
+
+	const index = foundUser.videos.indexOf(foundVideo);
+
+	console.log(`${index}================ this is the index`);
+
+	foundUser.videos.splice(index, 1);
+
+	await foundUser.save();
+
+
+
+
+	
+	
+
+	res.redirect('/show');
+})
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Foo-App</title>
+	<title>Videojoasdf</title>
 </head>
 <body>
 
@@ -11,10 +11,16 @@
 	<header>Temporary message: Show page</header>
 
 
-
-
 	<!-- Iterate through all vids in db associated to current user and show them on this page -->
 		<%for(let i = 0, len = user.videos.length; i < len; i ++ ){%>
+
+
+
+			<form action="/<%=user.videos[i].videoId%>?_method=DELETE" method='POST'>
+				<button class='close' >&times;</button>
+			</form>
+
+
 			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=user.videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
 		<%}%>	
 
