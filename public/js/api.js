@@ -17,8 +17,6 @@ $('#button').on('click', (event) => {
 			type: "video",
 			videoEmbeddable: true,
 
-			videoDuration: 'short',
-
 			videoDuration: "short",
 
 			part: "snippet"
