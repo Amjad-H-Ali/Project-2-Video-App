@@ -325,18 +325,25 @@ router.delete('/:id', async(req, res)=>{
 	foundVideo.remove();
 
 
-
-
-
-
-
-	const index = foundUser.videos.indexOf(foundVideo);
-
-	console.log(`${index}================ this is the index`);
-
-	foundUser.videos.splice(index, 1);
+	foundUser.videos.id(foundVideo._id).remove();
 
 	await foundUser.save();
+
+
+
+
+
+
+
+
+
+	// const index = foundUser.videos.indexOf(foundVideo);
+
+	// console.log(`${index}================ this is the index`);
+
+	// foundUser.videos.splice(index, 1);
+
+	// await foundUser.save();
 
 
 
