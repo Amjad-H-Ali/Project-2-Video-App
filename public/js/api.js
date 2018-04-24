@@ -16,7 +16,11 @@ $('#button').on('click', (event) => {
 			q: keyword,
 			type: "video",
 			videoEmbeddable: true,
+<<<<<<< HEAD
 			videoDuration: 'short',
+=======
+			videoDuration: "short",
+>>>>>>> 4d841ce9e26244dfbe66e6aa9df192c96854170f
 			part: "snippet"
 		},
 		type: "GET",
@@ -39,31 +43,30 @@ function getVideos(data) {
 	console.log(data);
 
 	//Remove all thumbnails to prevent another search result to pile on top of other thumbnails
-	$('#thumbNails').empty();
+	$('#searchedVideos').empty();
 
 
 	//Iterating through items array of objects in data object
 	for(let i = 0; i < data.items.length; i++) {
 
-
-		//Make a div that will contain a button and a thumbnail and set id to the associated id of video we are iterating through
-		const $div = $('<div>').attr('id',data.items[i].id.videoId);
-
-
-		//Getting url from thumbnails within those objects
-		const thumbnailURL = data.items[i].snippet.thumbnails.medium.url;
+		//Make a div that will contain a button and a video thumbnail and set id to the associated id of video we are iterating through
+		const $div = $('<div>').attr('id', data.items[i].id.videoId);
 
 
-		//Adding url as the src of imgages to make the thumbnails appear
-		const thumbnailImage = $('<img>').attr('src', thumbnailURL);
+		//Getting video Id from data set
+		const videoId = data.items[i].id.videoId;
 
 
-		//Append thumbnail to div with a button
-		const btnThumbContain = $div.append(thumbnailImage).append($('<button>').attr('class','thumbNailBtn').text('share'));
+		//Adding videoId as the src for iframe to make the video thumbnails appear
+		const video = $('<iframe>').attr('src', "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com");
 
 
-		// Appending images to div on our view page
-		$(btnThumbContain).appendTo('#thumbNails');
+		//Append videos to the div with a button
+		const btnThumbContain = $div.append(video).append($('<button>').attr('class','thumbNailBtn').text('share'));
+
+
+		// // Appending videos to div on our search page
+		$(btnThumbContain).appendTo('#searchedVideos');
 	};
 
 
@@ -94,13 +97,7 @@ function getVideos(data) {
 		// close the form
 		$('.modal').css('display', 'none');
 	});
-
-
-
-
 };
-
-
 
 
 

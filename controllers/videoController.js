@@ -53,10 +53,46 @@ router.post('/:id', async(req, res)=>{
 })
 
 
+//EDIT route
+router.get('/edit/:id', async (req, res)=>{
+	const video = await Video.findOne({'videoId': req.params.id});
+
+	res.render('video/edit.ejs', {
+		videoId: video.videoId
+	});
+});
 
 
 
+//PUT route
+router.put('/:id', async (req, res) => {
+	try {
 
+		const video = Video.findOne({'videoId': req.params.id});
+		const findUser = User.findOne({'userName': req.session.userName});
+
+		const [foundVideo, foundUser] = await Promise.all([video, findUser]);
+
+			//updates video title and description in videos collection
+			foundVideo.title = req.body.title;
+			foundVideo.description = req.body.description;
+			
+			//updates video title and description in user's videos array
+			foundUser.videos.id(foundVideo.id).title = req.body.title
+			foundUser.videos.id(foundVideo.id).description = req.body.description	
+			
+			console.log(foundUser.videos.id)
+
+			foundUser.save()
+			foundVideo.save();
+			res.redirect('/index')
+
+
+	} catch (err) {
+		console.log(err)
+		res.send(err)
+	}
+})
 
 
 

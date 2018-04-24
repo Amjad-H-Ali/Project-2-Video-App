@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<title>Videojoasdf</title>
+=======
+	<title>Videojo</title>
+>>>>>>> 4d841ce9e26244dfbe66e6aa9df192c96854170f
 </head>
 <body>
 
@@ -22,6 +26,14 @@
 
 
 			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=user.videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+
+			<h5><%=user.videos[i].title%></h5>
+			<h6><%=user.videos[i].description%></h6>
+
+			<form action="/video/edit/<%=user.videos[i].videoId%>" method="GET">
+				<button>Edit <i class="fa fa-edit"></i></button>
+			</form>
+
 		<%}%>	
 
 </body>

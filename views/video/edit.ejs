@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Videojo</title>
+</head>
+<body>
+	
+	
+	<header>Temporary message: edit page
+		<p>Edit the title or description of your saved videos</p>
+	</header>
+
+	<!-- form to edit video -->
+	<form action="/video/<%=videoId%>?_method=PUT" method="POST">
+		Edit Video Title: <input type="text" name="title" placeholder="video title"> <br>
+		Edit Video Description: <textarea type='text' name="description" placeholder="video description"></textarea> <br/>
+		<button>Edit Video Info</button>
+	</form>
+</body>
+</html>
