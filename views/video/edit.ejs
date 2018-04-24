@@ -6,15 +6,18 @@
 <body>
 	
 	
-	<header>Temporary message: edit page
-		<p>Edit the title or description of your saved videos</p>
-	</header>
+	<header>Edit Video Info</header>
 
 	<!-- form to edit video -->
 	<form action="/video/<%=videoId%>?_method=PUT" method="POST">
-		Edit Video Title: <input type="text" name="title" placeholder="video title"> <br>
-		Edit Video Description: <textarea type='text' name="description" placeholder="video description"></textarea> <br/>
-		<button>Edit Video Info</button>
+		Edit Video Title: <input type="text" name="title" placeholder="<%=title%>"> <br>
+
+		<div>
+			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+		</div>
+
+		Edit Video Description: <textarea type='text' name="description" placeholder="<%=description%>"></textarea> <br/>
+		<button>Update</button>
 	</form>
 </body>
 </html>
