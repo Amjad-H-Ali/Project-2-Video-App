@@ -1,5 +1,8 @@
 //Require mongoose to use Schema constructor to model our data in the DB
 const mongoose = require('mongoose');
+//Require User Schema
+const User = require('./user.js');
+
 //Instantiate videoSchema with the Schema constructor in mongoose
 const videoSchema = new mongoose.Schema({
 
@@ -27,7 +30,19 @@ const videoSchema = new mongoose.Schema({
 		default: 0
 		
 	}
+
+
 });
 
 //Export for controllers to use
 module.exports = mongoose.model('video', videoSchema);
+
+
+
+
+
+
+
+
+
+

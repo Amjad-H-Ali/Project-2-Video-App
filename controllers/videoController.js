@@ -34,11 +34,16 @@ router.post('/:id', async(req, res)=>{
 	//find user who posted this video by userName in session object
 	const findUser = User.findOne({'userName': req.session.userName});
 
+	
 	const [createdVideo, foundUser] = await Promise.all([createVideo, findUser]);
 	//push video in users videos array in db
 	foundUser.videos.push(createdVideo);
 	//Save changes in db
 	await foundUser.save();
+
+
+
+
 
 
 
