@@ -16,6 +16,10 @@
 	<!-- Iterate through all vids in db associated to current user and show them on this page -->
 		<%for(let i = 0, len = user.videos.length; i < len; i ++ ){%>
 			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=user.videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+
+			<h5><%=user.videos[i].title%></h5>
+			<h6><%=user.videos[i].description%></h6>
+
 			<form action="/video/edit/<%=user.videos[i].videoId%>" method="GET">
 				<button>Edit <i class="fa fa-edit"></i></button>
 			</form>

@@ -93,13 +93,7 @@ function getVideos(data) {
 		// close the form
 		$('.modal').css('display', 'none');
 	});
-
-
-
-
 };
-
-
 
 
 
