@@ -115,16 +115,15 @@ body{
     color: rgb(255, 255, 255);
     text-align: center;
 }
-/*
-.likeContainer {
+
+
+
+.postedBy{
     position: absolute;
-
-    right: 5% ;
-
+    color:#2b78e4;
+    left:5%;
     bottom:2%;
-  
-
-}*/
+}
 
 
 

@@ -31,7 +31,9 @@ const videoSchema = new mongoose.Schema({
 		
 	},
 
-	user:User.schema
+	user:{
+		type: String
+	}
 
 
 });

@@ -25,7 +25,10 @@ router.post('/:id', async(req, res)=>{
 		description: req.body.description,
 
 		// The id of the vid was passed in as a parameter
-		videoId: req.params.id
+		videoId: req.params.id,
+
+		//Owner of video
+		user: req.session.userName
 	}
 
 	// create vid in db
