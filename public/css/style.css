@@ -46,7 +46,7 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 45%;
+    width: 50%;
     height: 100%;
     background-color: #2b78e4;
     z-index: 1;
@@ -55,34 +55,47 @@
 
 #loginChild {
     position: absolute;
-    right: 3%;
+    right: 7%;
     top: 5%;
-}
-
-#newChild {
-    position: absolute;
-    right: 5%;
-    bottom: 25%;
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
+    padding: 15px 15px 35px 15px;
+
+}
+
+.newChild {
+    position: absolute;
+    right: 8%;
+    bottom: 35%;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 15px;
 /*    height: 45%;*/
 }
 
-#mainPageBtn {
+.logInBtn {
     background-color: #2b78e4;
     color: white;
 }
 
-/*#parentDiv {
-    position: relative;
-}*/
+.signUpBtn {
+    background-color: #2b78e4;
+    color: white;
+    float: right;
+    margin: 5px;
+}
 
 #child {
     position: absolute;
     left: 5%;
-    top: 20%;
+    top: 25%;
+    text-align: center;
 }
 
 #newTextBoxes {
     margin: 5px;
+}
+
+.introP {
+    margin-top: 8%;
 }
