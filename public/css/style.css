@@ -38,20 +38,7 @@
     cursor: pointer;
 }
 
-#body {
-    background-color: white;
-}
 
-#background {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 50%;
-    height: 100%;
-    background-color: #2b78e4;
-    z-index: 1;
-    color: white;
-}
 
 #loginChild {
     position: absolute;
@@ -102,11 +89,25 @@
 
 
 body {
- /*   background-color: #2b78e4;*/
+/*    background-color: #2b78e4;*/
     font-family:'Jua', sans-serif;
 
 }
 
+#body {
+    background-color: white;
+}
+
+#background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background-color: #2b78e4;
+    z-index: 1;
+    color: white;
+}
 
 .vidContainer {
 
