@@ -16,9 +16,13 @@ $('#button').on('click', (event) => {
 			q: keyword,
 			type: "video",
 			videoEmbeddable: true,
+<<<<<<< HEAD
 
 			videoDuration: "short",
 
+=======
+			videoDuration: "short",
+>>>>>>> ag-api
 			part: "snippet"
 		},
 		type: "GET",
