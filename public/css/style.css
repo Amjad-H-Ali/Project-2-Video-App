@@ -99,3 +99,109 @@
 .introP {
     margin-top: 8%;
 }
+
+
+body {
+    background-color: #2b78e4;
+    font-family:'Jua', sans-serif;
+
+}
+
+
+.vidContainer {
+
+   
+    height:500px;
+    width:600px;
+    margin-top:70px;
+    margin-right:auto;
+    margin-left:auto;
+    background-color: #eeeeee; 
+    text-align: center;
+    box-shadow: 5px 5px 50px black;
+    position: relative;
+}
+
+.likeBtn {
+    border-radius: 50%;
+    background-color: #2b78e4; 
+    height:40px;
+    width: 40px;
+    position: absolute;
+    right:8%;
+    bottom: 2%;
+    
+   
+}
+
+.likeBtn:focus {
+    outline:none;
+}
+
+
+
+.vidTitle {
+   
+    font-size: 60px;
+   
+}
+
+.numOfLikes {
+   
+    position: absolute;
+    right:5%;
+    bottom: 2%;
+  
+
+
+
+   
+}
+
+
+.nav {
+
+
+    height: 50px;
+    background-color:#eeeeee; 
+    z-index:1;
+   
+
+
+}
+
+.nav a {
+    margin:auto;
+    font-size: 25px;
+    color:#2b78e4;
+
+}
+
+
+.sticky {
+    position: fixed;
+
+    top:0;
+
+    width:100%;
+
+}
+
+
+.pageTitle {
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+  
+}
+
+
+
+.postedBy {
+    position: absolute;
+    color:#2b78e4;
+    left:5%;
+    bottom:2%;
+}
+

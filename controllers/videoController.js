@@ -25,7 +25,10 @@ router.post('/:id', async(req, res)=>{
 		description: req.body.description,
 
 		// The id of the vid was passed in as a parameter
-		videoId: req.params.id
+		videoId: req.params.id,
+
+		//Owner of video
+		user: req.session.userName
 	}
 
 	// create vid in db
@@ -85,8 +88,8 @@ router.put('/:id', async (req, res) => {
 			
 			console.log(foundUser.videos.id)
 
-			foundUser.save()
-			foundVideo.save();
+			await foundUser.save()
+			await foundVideo.save();
 			res.redirect('/index')
 
 
