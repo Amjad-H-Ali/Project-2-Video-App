@@ -53,8 +53,9 @@ function getVideos(data) {
 		const videoId = data.items[i].id.videoId;
 
 
+
 		//Adding videoId as the src for iframe to make the video thumbnails appear
-		const video = $('<iframe>').attr('src', "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com");
+		const video = $('<iframe>').attr('src', "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com").attr('class', 'vidz');
 
 
 		//Append videos to the div with a button
@@ -63,6 +64,7 @@ function getVideos(data) {
 
 		// // Appending videos to div on our search page
 		$(btnThumbContain).appendTo('#searchedVideos');
+
 	};
 
 
