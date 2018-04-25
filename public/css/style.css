@@ -38,25 +38,48 @@
     cursor: pointer;
 }
 
-#body {
+#login-stuff {  
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+
+
+}
+#login-forms {
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-basis: 50%;
+
     background-color: white;
+    /*width: 49%;*/
+    height: 100vh;
 }
 
-#background {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 50%;
+#login-forms form {
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 600px;
+}
+#site-description {
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 50%;
+
     height: 100%;
     background-color: #2b78e4;
-    z-index: 1;
+
     color: white;
 }
 
 #loginChild {
-    position: absolute;
-    right: 7%;
-    top: 5%;
+
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
     padding: 15px 15px 35px 15px;
@@ -64,9 +87,9 @@
 }
 
 .newChild {
-    position: absolute;
-    right: 8%;
-    bottom: 35%;
+    /*position: absolute;*/
+    /*right: 8%;*/
+    /*bottom: 35%;*/
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
     padding: 15px;
@@ -86,9 +109,8 @@
 }
 
 #child {
-    position: absolute;
-    left: 5%;
-    top: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
 }
 
@@ -96,13 +118,11 @@
     margin: 5px;
 }
 
-.introP {
-    margin-top: 8%;
-}
+
 
 
 body {
- /*   background-color: #2b78e4;*/
+    background-color: #2b78e4;
     font-family:'Jua', sans-serif;
 
 }
@@ -205,30 +225,6 @@ body {
     bottom:2%;
 }
 
-#body {
-    background-color: white;
-}
-
-#background {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 50%;
-    height: 100%;
-    background-color: #2b78e4;
-    z-index: 1;
-    color: white;
-}
-
-#loginChild {
-    position: absolute;
-    right: 7%;
-    top: 5%;
-    border: 1px solid #eeeeee;
-    background-color: #eeeeee;
-    padding: 15px 15px 35px 15px;
-
-}
 
 
 iframe{
@@ -238,9 +234,9 @@ iframe{
 
 
 .newChild {
-    position: absolute;
-    right: 8%;
-    bottom: 35%;
+    /*position: absolute;*/
+    /*right: 8%;*/
+    /*bottom: 35%;*/
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
     padding: 15px;
@@ -260,12 +256,7 @@ iframe{
     margin: 5px;
 }
 
-#child {
-    position: absolute;
-    left: 5%;
-    top: 25%;
-    text-align: center;
-}
+
 
 #newTextBoxes {
     margin: 5px;
@@ -273,4 +264,5 @@ iframe{
 
 .introP {
     margin-top: 8%;
+    font-size: 20px;
 }
