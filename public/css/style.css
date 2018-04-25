@@ -99,14 +99,28 @@ body{
 
 
     height: 50px;
-    margin:none;
     background-color:#eeeeee; 
+    z-index:1;
+   
+
+
 }
 
 .nav a {
     margin:auto;
     font-size: 25px;
     color:#2b78e4;
+
+}
+
+
+.sticky{
+    position: fixed;
+
+    top:0;
+
+    width:100%;
+
 }
 
 
@@ -114,6 +128,8 @@ body{
     font-size: 100px;
     color: rgb(255, 255, 255);
     text-align: center;
+
+  
 }
 
 
