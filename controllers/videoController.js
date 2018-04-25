@@ -61,7 +61,9 @@ router.get('/edit/:id', async (req, res)=>{
 	const video = await Video.findOne({'videoId': req.params.id});
 
 	res.render('video/edit.ejs', {
-		videoId: video.videoId
+		videoId: video.videoId,
+		title: video.title,
+		description: video.description
 	});
 });
 

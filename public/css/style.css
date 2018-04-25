@@ -38,15 +38,77 @@
     cursor: pointer;
 }
 
+#body {
+    background-color: white;
+}
 
-body{
+#background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
     background-color: #2b78e4;
+    z-index: 1;
+    color: white;
+}
+
+#loginChild {
+    position: absolute;
+    right: 7%;
+    top: 5%;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 15px 15px 35px 15px;
+
+}
+
+.newChild {
+    position: absolute;
+    right: 8%;
+    bottom: 35%;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 15px;
+/*    height: 45%;*/
+}
+
+.logInBtn {
+    background-color: #2b78e4;
+    color: white;
+}
+
+.signUpBtn {
+    background-color: #2b78e4;
+    color: white;
+    float: right;
+    margin: 5px;
+}
+
+#child {
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    text-align: center;
+}
+
+#newTextBoxes {
+    margin: 5px;
+}
+
+.introP {
+    margin-top: 8%;
+}
+
+
+body {
+ /*   background-color: #2b78e4;*/
     font-family:'Jua', sans-serif;
 
 }
 
 
-.vidContainer{
+.vidContainer {
 
    
     height:500px;
@@ -60,7 +122,7 @@ body{
     position: relative;
 }
 
-.likeBtn{
+.likeBtn {
     border-radius: 50%;
     background-color: #2b78e4; 
     height:40px;
@@ -72,17 +134,19 @@ body{
    
 }
 
-.likeBtn:focus{outline:none;}
+.likeBtn:focus {
+    outline:none;
+}
 
 
 
-.vidTitle{
+.vidTitle {
    
     font-size: 60px;
    
 }
 
-.numOfLikes{
+.numOfLikes {
    
     position: absolute;
     right:5%;
@@ -95,7 +159,7 @@ body{
 }
 
 
-.nav{
+.nav {
 
 
     height: 50px;
@@ -114,7 +178,7 @@ body{
 }
 
 
-.sticky{
+.sticky {
     position: fixed;
 
     top:0;
@@ -124,7 +188,7 @@ body{
 }
 
 
-.pageTitle{
+.pageTitle {
     font-size: 100px;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -134,11 +198,36 @@ body{
 
 
 
-.postedBy{
+.postedBy {
     position: absolute;
     color:#2b78e4;
     left:5%;
     bottom:2%;
+}
+
+#body {
+    background-color: white;
+}
+
+#background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background-color: #2b78e4;
+    z-index: 1;
+    color: white;
+}
+
+#loginChild {
+    position: absolute;
+    right: 7%;
+    top: 5%;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 15px 15px 35px 15px;
+
 }
 
 
@@ -148,7 +237,40 @@ iframe{
 }
 
 
+.newChild {
+    position: absolute;
+    right: 8%;
+    bottom: 35%;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    padding: 15px;
+/*    height: 45%;*/
+}
 
 
+.logInBtn {
+    background-color: #2b78e4;
+    color: white;
+}
 
+.signUpBtn {
+    background-color: #2b78e4;
+    color: white;
+    float: right;
+    margin: 5px;
+}
 
+#child {
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    text-align: center;
+}
+
+#newTextBoxes {
+    margin: 5px;
+}
+
+.introP {
+    margin-top: 8%;
+}

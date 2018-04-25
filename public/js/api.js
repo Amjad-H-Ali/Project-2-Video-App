@@ -16,11 +16,7 @@ $('#button').on('click', (event) => {
 			q: keyword,
 			type: "video",
 			videoEmbeddable: true,
-
-			videoDuration: 'short',
-
 			videoDuration: "short",
-
 			part: "snippet"
 		},
 		type: "GET",

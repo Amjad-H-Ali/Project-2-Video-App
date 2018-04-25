@@ -1,22 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<!-- log in -->
-	<form action='/login' method='POST'>
-		<input type="username" name="userName" placeholder="username">
-		<input type="password" name="password" placeholder="password">
-		<button>Log In</button>
-	</form>
-	<!-- register (create user) -->
-	<form action='/register' method='POST'>
-		<input type="text" name="firstName" placeholder="first name">
-		<input type="text" name="lastName" placeholder="last name">
-		<input type="username" name="userName" placeholder="username">
-		<input type="password" name="password" placeholder="password">
-		<button>Sign Up</button>
-	</form>
-</body>
-</html>
+<div id="body">
+
+	<div id="background">
+		<div id="parentDiv">
+			<div id="child">
+				<h1>Vide-ojo</h1>
+
+				<p class="introP">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>	
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<!-- log in -->
+		<form id="loginChild" action='/login' method='POST'>
+			<h3>Log In:</h3>
+			<input type="username" name="userName" placeholder="username">
+			<input type="password" name="password" placeholder="password">
+			<button class="logInBtn">Log In</button>
+		</form>
+
+		<!-- register (create user) -->
+		<form class="newChild" id="createAccount" action='/register' method='POST'>
+			<h3>Create New Account</h3>
+			<input id="newTextBoxes" type="text" name="firstName" placeholder="first name">
+			<input id="newTextBoxes" type="text" name="lastName" placeholder="last name"> <br/>
+			<input id="newTextBoxes" type="username" name="userName" placeholder="username">
+			<input id="newTextBoxes" type="password" name="password" placeholder="password"> <br/>
+			<button class="signUpBtn">Sign Up</button>
+		</form>	
+	</div>
+
+
+</div>
