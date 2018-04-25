@@ -38,7 +38,7 @@ $('.likeBtn').on('click', (e)=>{
 
 	//Fill in like button if clicked
 	if( $(e.currentTarget).children().hasClass('fa-thumbs-o-up') ){
-		
+		console.log($(e.currentTarget).siblings());
 		//Fill in like Button
 		$(e.currentTarget).children().toggleClass('fa-thumbs-o-up');
 
@@ -46,7 +46,9 @@ $('.likeBtn').on('click', (e)=>{
 		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
 
 		//Also, increment number of likes
-		$(e.currentTarget).siblings()[3].innerText ++;
+		$(e.currentTarget).siblings()[4].innerText ++;
+
+
 
 	
 
@@ -61,7 +63,7 @@ $('.likeBtn').on('click', (e)=>{
 		$(e.currentTarget).children().toggleClass('fa-thumbs-up');
 
 		//Also. decrement number of likes
-		$(e.currentTarget).siblings()[3].innerText --;
+		$(e.currentTarget).siblings()[4].innerText --;
 
 	}
 
