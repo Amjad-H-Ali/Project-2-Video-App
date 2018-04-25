@@ -59,7 +59,8 @@ router.get('/index', async(req, res)=>{
 		firstName: foundUser.firstName,
 		lastName: foundUser.lastName,
 		user: foundUser,
-		videos: foundVideos
+		videos: foundVideos,
+		currentUser: req.session.userName
 
 	});
 
