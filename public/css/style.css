@@ -38,7 +38,16 @@
     cursor: pointer;
 }
 
+.message {
+    text-align: right;
+    margin-right: 10%;
+    margin-left: 60%;
+    padding-right: 5%;
+}
 
+#body {
+    background-color: white;
+}
 
 #loginChild {
     position: absolute;

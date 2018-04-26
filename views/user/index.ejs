@@ -51,7 +51,15 @@
 
 
 					<!-- Posted By ... -->
-					<h5 class='postedBy'>Posted By <%=videos[i].user%></h5>
+					<h5 class='postedBy'>
+
+						<% if(videos[i].user === currentUser) { %>
+							Posted by you
+						<% } else { %>
+
+							Posted by <a href="/show/<%=videos[i].user%>"><%=videos[i].user%></a>
+						<%} %>
+					</h5>
 
 
 						<!-- like button -->

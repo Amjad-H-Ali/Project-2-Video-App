@@ -28,7 +28,9 @@ router.get('/add', (req, res)=>{
 
 //Get route to render login-signup page
 router.get('/', (req, res)=>{
-	res.render('user/login-signup.ejs');
+	res.render('user/login-signup.ejs', {
+		message: req.session.message
+	});
 });
 
 
@@ -93,10 +95,21 @@ router.get('/show', async(req, res)=>{
 
 
 
+//Get route to render other users' show pages from index page
+router.get('/show/:id', async(req, res)=>{
 
+	//find user by username
+	const userName = req.params.id
 
+	//Find all the videos posted by this user
+	const videos = await Video.find({'user': userName});
 
-
+	//Sending current user to another user's show page
+	res.render('user/otherShow.ejs', {
+		videos: videos,
+		user: userName
+	});
+});
 
 
 
@@ -199,6 +212,9 @@ router.post('/login', async(req, res, next)=>{
 	try{
 		//Finding user in DB with the given username
 		const user = await User.findOne({'userName': req.body.userName});
+
+		const message = req.session.message;
+		req.session.message = null;
 		//Checking if user exists in our DB and comparing if password is the same as given password
 		if(user && bcrypt.compareSync(req.body.password, user.password)){
 			//If it does, we'll...
@@ -209,22 +225,16 @@ router.post('/login', async(req, res, next)=>{
 
 			req.session.lastName = user.lastName;
 
-
 			req.session.logged = true;
 
 			//render index page and send property to that file
 			res.redirect('/index');
-
-
-
-		}
+		} else {
 		//If either the username or password are false
-		else{
+			req.session.message = "Username or password is incorrect";
 			res.redirect('/');
-
+			console.log(req.session.message)
 		}
-		
-
 	}
 	catch(err){
 		next(err);
