@@ -10,6 +10,7 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
 }
 
 
@@ -19,6 +20,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    position: relative;
+    height: 400px;
 }
 
 
@@ -28,6 +31,9 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top:2%;
+    right: 2%;
 }
 
 /*When hovering on the close button*/
@@ -36,6 +42,36 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.modalTitle{
+    position: absolute;
+    width: 300px;
+    right:33%;
+
+}
+
+.modalBtn{
+    position: absolute;
+    bottom: 10%;
+    right:33%;
+    background-color:#2b78e4;
+    color:white; 
+}
+
+textarea{
+    overflow: auto;
+    resize: vertical;
+    width: 300px;
+    height: 130px;
+    
+}
+
+.modalDescription{
+    position: absolute;
+    bottom: 22%;
+    right: 33%;
+
 }
 
 #login-stuff {  
@@ -324,7 +360,7 @@ iframe{
   position: absolute;
   top:55%;
   right:21%;
-  
+
 
 }
 
@@ -337,6 +373,8 @@ iframe{
 input:focus{
     outline:none;
 }
+
+
 
 
 

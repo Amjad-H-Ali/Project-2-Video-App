@@ -37,11 +37,13 @@
 <!-- popUp form -->
 	<div class="modal">
 		<div class="modal-content">
+			<h5 class="vidTitle">Share Your Video</h5>
 			<span class="close">&times;</span>
 			<form id= postVidForm method='POST'>
-				<input type="text" name="title" placeholder="Video Title">
-				<textarea type='text' name='description' placeholder="Video Description" maxlength="140"></textarea>
-				<button>Post</button>
+				<input type="text" name="title" placeholder="Video Title" class=modalTitle>
+				<br>
+				<textarea type='text' name='description' placeholder="Video Description" class='modalDescription' maxlength="140"></textarea>
+				<button class= 'modalBtn'>Post</button>
 			</form>
 		</div>
 	</div>
