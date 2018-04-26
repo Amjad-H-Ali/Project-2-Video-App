@@ -1,26 +1,76 @@
+	<!-- nav bar -->
+	<nav class='nav'>
+		<a href="/index">Home</a>
+		<a href="/add">Post A Video</a>
+		<a href="#">My Liked Videos</a>
+		<a href="/logout">Log Out</a> 
+	</nav>
 
-	<!-- links to other pages -->
-	<a href="/index">Home</a>
-	<header>Temporary message: Show page</header>
+
+
+		<!-- Page Title -->
+	<h1 class='pageTitle'><%=user.userName%>'s Videos</h1>
+
+
+
 
 
 	<!-- Iterate through all vids in db associated to current user and show them on this page -->
 		<%for(let i = 0, len = user.videos.length; i < len; i ++ ){%>
 
+			<!-- Video container -->
+			<div class="vidContainer">
 
 
+
+			<!-- Delete button -->
 			<form action="/<%=user.videos[i].videoId%>?_method=DELETE" method='POST'>
 				<button class='close' >&times;</button>
 			</form>
 
 
+
+			<!-- Title of video -->
+			<h5 class=vidTitle><%=user.videos[i].title%></h5>
+
+
+
+
+
+			<!-- Video -->
 			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=user.videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
 
-			<h5><%=user.videos[i].title%></h5>
+			
+
+
+			<!-- Description -->
 			<h6><%=user.videos[i].description%></h6>
 
+
+
+
+			<!-- Amount of likes -->
+			<div class="likeBtn">
+				
+				<i class="fa fa-thumbs-up" style='color:white;' ></i> 
+
+			</div>
+
+
+
+
+			<h5 id='numOfLikes' class= 'numOfLikes'> <%= user.videos[i].likes %> </h5>
+
+
+
+
+			<!-- Edit Button -->
 			<form action="/video/edit/<%=user.videos[i].videoId%>" method="GET">
-				<button>Edit <i class="fa fa-edit"></i></button>
+				<button class='editBtn'>Edit <i class="fa fa-edit"></i></button>
 			</form>
+
+
+
+		</div>
 
 		<%}%>	

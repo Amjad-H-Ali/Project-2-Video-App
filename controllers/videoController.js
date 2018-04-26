@@ -56,6 +56,12 @@ router.post('/:id', async(req, res)=>{
 })
 
 
+
+
+
+
+
+
 //EDIT route
 router.get('/edit/:id', async (req, res)=>{
 	const video = await Video.findOne({'videoId': req.params.id});
@@ -66,6 +72,11 @@ router.get('/edit/:id', async (req, res)=>{
 		description: video.description
 	});
 });
+
+
+
+
+
 
 
 

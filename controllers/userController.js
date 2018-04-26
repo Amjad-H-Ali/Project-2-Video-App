@@ -270,22 +270,30 @@ router.post('/like', async(req, res, next)=>{
 			foundUser.likedVideos.push(req.body.vidId);
 
 			//Also, increment the number of likes in the video model
-			foundVid.likes += 1;
+			foundVid.likes +=1;
+
+			//Also , increment the number of likes in user video array
+			// foundUser.videos.id(foundVid._id).likes +=1;
 		}
 
 
 		else{
 
-			// Get the index of the unliked video in array
+			//Get the index of the unliked video in array
 			const index = foundUser.likedVideos.indexOf(req.body.vidId);
-
-			// Remove it from the array in the DB
+			
+			//Remove it from the array in the DB
 			foundUser.likedVideos.splice(index, 1);
+			
+
+
+
+			// foundUser.likedVideos.id(foundVid._id).remove();
 
 
 
 			//Also, decrement the number of likes in the video model
-			foundVid.likes -= 1;
+			foundVid.likes -=1;
 
 		}
 
@@ -314,6 +322,10 @@ router.post('/like', async(req, res, next)=>{
 
 
 
+
+
+
+
 router.delete('/:id', async(req, res)=>{
 
 	const findVideo = Video.findOne({'videoId': req.params.id});
@@ -329,26 +341,6 @@ router.delete('/:id', async(req, res)=>{
 
 	await foundUser.save();
 
-
-
-
-
-
-
-
-
-	// const index = foundUser.videos.indexOf(foundVideo);
-
-	// console.log(`${index}================ this is the index`);
-
-	// foundUser.videos.splice(index, 1);
-
-	// await foundUser.save();
-
-
-
-
-	
 	
 
 	res.redirect('/show');
