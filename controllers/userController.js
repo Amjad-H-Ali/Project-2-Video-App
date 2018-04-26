@@ -250,7 +250,7 @@ router.post('/like', async(req, res, next)=>{
 	try{
 
 
-		//find current user
+		//find current user who liked
 		const findUser = User.findOne({'userName':req.session.userName});
 
 
@@ -264,6 +264,15 @@ router.post('/like', async(req, res, next)=>{
 
 
 
+		// Find owner of liked video
+		const foundOwner = await User.findOne({'userName': foundVid.user});
+
+
+		
+
+
+
+
 
 		// If the vid is liked, add to array in DB
 		if(req.body.liked == 'true'){
@@ -272,6 +281,13 @@ router.post('/like', async(req, res, next)=>{
 
 			//Also, increment the number of likes in the video model
 			foundVid.likes ++;
+
+
+			if(foundUser.userName == foundOwner.userName){
+				//Also, increment likes in videos array of owner of video
+				foundUser.videos.id(foundVid._id).likes += 1;
+				console.log(`${foundOwner.videos.id(foundVid._id).likes}=======================================`)
+			}
 
 			
 		}
@@ -293,14 +309,23 @@ router.post('/like', async(req, res, next)=>{
 			//Also, decrement the number of likes in the video model
 			foundVid.likes --;
 
+
+
+
+			if(foundUser.userName == foundOwner.userName){
+				//Also, decrement likes in videos array of owner of video
+				foundUser.videos.id(foundVid._id).likes -=1;
+				console.log(`${foundOwner.videos.id(foundVid._id).likes}=======================================`)
+			}
 		}
 
 
 		//Save changes
 		await foundUser.save();
 
-
 		await foundVid.save();
+
+		await foundOwner.save();
 
 		//This is consoled.logged in browser
 		res.send('POSTED!');

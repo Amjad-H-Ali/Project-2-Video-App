@@ -161,6 +161,7 @@ textarea{
 body {
     background-color: #2b78e4;
     font-family:'Jua', sans-serif;
+
   
 
 }
@@ -190,6 +191,11 @@ body {
     bottom: 2%;
     
    
+}
+
+
+.showLike{
+    padding-top: 6px;
 }
 
 button:focus {
@@ -232,7 +238,7 @@ button:focus {
     margin:auto;
     font-size: 25px;
     color:#2b78e4;
-
+  
 }
 
 
@@ -352,6 +358,8 @@ input:focus{
     bottom:3%;
     left:5%;
 }
+
+
 
 
 
