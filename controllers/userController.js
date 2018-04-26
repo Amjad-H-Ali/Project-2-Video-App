@@ -29,7 +29,8 @@ router.get('/add', (req, res)=>{
 //Get route to render login-signup page
 router.get('/', (req, res)=>{
 	res.render('user/login-signup.ejs', {
-		message: req.session.message
+		message: req.session.message,
+		hideNav: true
 	});
 });
 

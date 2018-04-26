@@ -11,7 +11,7 @@ Our site connects to youtube's API in order to search videos.
 
 ## User Stories and WireFrames:
 	1. User can create an account or log in.
-	![alt text](public/wireframes/1-LoginInPage.png)
+	![alt text](public/wireframes/1-LogInPage.png)
 	2. After log in, user sees index of all videos posted by users in the database.
 	... User can click on options to Post a Video, view My Videos, or Log Out.
 	... User can scroll through all videos posted and like different videos.

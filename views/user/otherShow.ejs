@@ -1,16 +1,45 @@
-<!-- links to other pages -->
-<a href="/index">Home</a>
+<!-- nav bar -->
+<nav class='nav'>
+	<a href="/index">Home</a>
+	<a href="/show">My Videos</a>
+	<a href="/logout">Log Out</a> 
+</nav>
+
+<div class="spacer"></div>
 
 <h1 class="pageTitle"> <%=user%>'s Videos</h1>
 
 
 <!-- Iterate through all videos shared by this user and show them on this page -->
 <%for(let i = 0, len = videos.length; i < len; i ++ ){%>
+	
+
+	<div class="vidContainer">
+		<!-- Video Title -->
+		<h5 class=vidTitle><%=videos[i].title%></h5>
 
 
-	<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+		<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
 
-	<h5><%=videos[i].title%></h5>
-	<h6><%=videos[i].description%></h6>
+		
+
+		<!-- Video Description -->
+		<h6><%=videos[i].description%></h6>
+
+
+
+
+
+		<!-- Amount of likes -->
+		<div class="likeBtn showLike">
+			
+			<i class="fa fa-thumbs-up" style='color:white;' ></i> 
+
+		</div>
+
+
+		<h5 id='numOfLikes' class= 'numOfLikes'> <%= videos[i].likes %> </h5>
+
+	</div>
 
 <%}%>	
