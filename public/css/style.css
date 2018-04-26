@@ -127,6 +127,7 @@
 body {
     background-color: #2b78e4;
     font-family:'Jua', sans-serif;
+  
 
 }
 
@@ -296,6 +297,46 @@ iframe{
 
 }
 
+.searchField{
+    width:60%;
+    height:100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+}
+
+.search{
+  border-radius:15px;
+  border:none;
+  width: 60%;
+  height:35px;
+  padding-left: 25px;
+  margin-top:50px;
+
+}
+
+.searchBtn{
+  border-radius:5px 5px 5px 5px;
+  background-color: transparent;
+  border:none;
+  color:#333;
+  position: absolute;
+  top:55%;
+  right:21%;
+  
+
+}
+
+.searchBtn:hover{
+    background-color: #eeeeee;
+
+}
+
+
+input:focus{
+    outline:none;
+}
 
 
 
