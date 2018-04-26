@@ -13,6 +13,10 @@
 
 	<div>
 		<!-- log in -->
+		<% if (message) { -%>
+			<p class="message" style="background-color: pink"><%=message%></p>		
+		<% } -%>
+
 		<form id="loginChild" action='/login' method='POST'>
 			<h3>Log In:</h3>
 			<input type="username" name="userName" placeholder="username">

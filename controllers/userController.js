@@ -212,6 +212,9 @@ router.post('/login', async(req, res, next)=>{
 	try{
 		//Finding user in DB with the given username
 		const user = await User.findOne({'userName': req.body.userName});
+
+		const message = req.session.message;
+		req.session.message = null;
 		//Checking if user exists in our DB and comparing if password is the same as given password
 		if(user && bcrypt.compareSync(req.body.password, user.password)){
 			//If it does, we'll...
@@ -222,14 +225,13 @@ router.post('/login', async(req, res, next)=>{
 
 			req.session.lastName = user.lastName;
 
-
 			req.session.logged = true;
 
 			//render index page and send property to that file
 			res.redirect('/index');
 		} else {
 		//If either the username or password are false
-			req.session.message = "Username or password is incorrect"
+			req.session.message = "Username or password is incorrect";
 			res.redirect('/');
 			console.log(req.session.message)
 		}
