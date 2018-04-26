@@ -1,9 +1,10 @@
 <!-- links to other pages -->
 <a href="/index">Home</a>
-<header>Temporary message: Show page</header>
+
+<h1 class="pageTitle"> <%=user%>'s Videos</h1>
 
 
-<!-- Iterate through all vids in db associated to this user and show them on this page -->
+<!-- Iterate through all videos shared by this user and show them on this page -->
 <%for(let i = 0, len = videos.length; i < len; i ++ ){%>
 
 
