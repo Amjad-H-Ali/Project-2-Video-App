@@ -25,8 +25,10 @@ const navPos = nav.offsetTop;
 
 
 const addSticky = ()=>{
-	console.log(window);
-	if(window.pageYOffset >= navPos){
+	console.log(window.pageYOffset)
+	console.log($('nav')[0].offsetTop)
+	// console.log(window);
+	if(window.pageYOffset > 0){
 		console.log('It worked');
 		$nav.addClass('sticky');
 	}else{
