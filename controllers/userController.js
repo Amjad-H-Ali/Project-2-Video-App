@@ -287,8 +287,10 @@ router.post('/like', async(req, res, next)=>{
 
 			if(foundUser.userName == foundOwner.userName){
 				//Also, increment likes in videos array of owner of video
-				foundUser.videos.id(foundVid._id).likes += 1;
-				console.log(`${foundOwner.videos.id(foundVid._id).likes}=======================================`)
+				foundUser.videos.id(foundVid._id).likes ++ ;
+			}
+			else{
+				foundOwner.videos.id(foundVid._id).likes ++ ;
 			}
 
 			
@@ -316,9 +318,15 @@ router.post('/like', async(req, res, next)=>{
 
 			if(foundUser.userName == foundOwner.userName){
 				//Also, decrement likes in videos array of owner of video
-				foundUser.videos.id(foundVid._id).likes -=1;
+				foundUser.videos.id(foundVid._id).likes -- ;
 				console.log(`${foundOwner.videos.id(foundVid._id).likes}=======================================`)
 			}
+			else{
+				foundOwner.videos.id(foundVid._id).likes -- ;
+			}
+
+
+
 		}
 
 
