@@ -28,7 +28,9 @@ router.get('/add', (req, res)=>{
 
 //Get route to render login-signup page
 router.get('/', (req, res)=>{
-	res.render('user/login-signup.ejs');
+	res.render('user/login-signup.ejs', {
+		message: req.session.message
+	});
 });
 
 
@@ -225,17 +227,12 @@ router.post('/login', async(req, res, next)=>{
 
 			//render index page and send property to that file
 			res.redirect('/index');
-
-
-
-		}
+		} else {
 		//If either the username or password are false
-		else{
+			req.session.message = "Username or password is incorrect"
 			res.redirect('/');
-
+			console.log(req.session.message)
 		}
-		
-
 	}
 	catch(err){
 		next(err);
