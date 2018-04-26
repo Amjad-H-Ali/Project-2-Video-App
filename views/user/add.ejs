@@ -1,33 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-<body>
-<!-- 	<a href="/show">My Profile</a>
-	<a href="/logout">log out</a> <br/> -->
-	<input type="search" name="youtubeVids" placeholder="Search For Videos...">
-	<button id='button'>Go!</button>
-	<div >
-		<p>Search for videos to save to your page.</p>
+	<!-- nav bar -->
+	<nav class='nav'>
+		<a href="/index">Home</a>
+		<a href="/show">My Videos</a>
+		<a href="/logout">Log Out</a> 
+	</nav>
+
+
+
+
+	<!-- Page Title -->
+	<h1 class='pageTitle'>Search For Videos</h1>
+
+
+
+
+	<!-- search videos -->
+	<div class='searchField'>
+		<input type="search" name="youtubeVids" placeholder="Search For Videos..." class='search'>
+		<button id='button' class='searchBtn'><i class="fa fa-search"></i></button>
 	</div>
 
-	<div id="searchedVideos"></div>
 
-<!-- popUp form -->
+
+
+
+		<div id="searchedVideos"></div>
+
+
+
+
+
+
+
+
+
+	<!-- popUp form -->
 	<div class="modal">
 		<div class="modal-content">
+			<h5 class="vidTitle">Share Your Video</h5>
 			<span class="close">&times;</span>
 			<form id= postVidForm method='POST'>
-				<input type="text" name="title" placeholder="Video Title">
-				<textarea type='text' name='description' placeholder="Video Description" maxlength="140"></textarea>
-				<button>Post</button>
+				<input type="text" name="title" placeholder="Video Title" class=modalTitle>
+				<br>
+				<textarea type='text' name='description' placeholder="Video Description" class='modalDescription' maxlength="140"></textarea>
+				<button class= 'modalBtn'>Post</button>
 			</form>
 		</div>
 	</div>
 
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/api.js"></script>
-</html>
+

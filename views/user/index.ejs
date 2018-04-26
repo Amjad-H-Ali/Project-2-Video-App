@@ -37,7 +37,7 @@
 
 
 					<!-- video -->
-					<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin" width="540" height="290" frameborder="0"></iframe>
+					<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videos[i].videoId%>?enablejsapi=1&origin" frameborder="0"></iframe>
 
 
 
@@ -62,15 +62,38 @@
 					</h5>
 
 
+
+
+
+
 						<!-- like button -->
-						<button class='likeBtn' id='<%=videos[i].videoId%>'>
+						<button class='likeBtn likeBtn2' id='<%=videos[i].videoId%>'>
+
+							
+
+
+
+
+
+
+
+
 							<!-- if the vid is liked by user in DB, we want the like button to be filled -->
-							<% if( user.likedVideos.includes(videos[i].videoId) ){%>
+							<% if( (user.likedVideos.findIndex( element => element.videoId == videos[i].videoId)) >= 0  ){%>
 								 <i class="fa fa-thumbs-up" style='color:white;' ></i> 
 								 <!-- else unfill -->
 							<%}else{%> 
 								<i class="fa fa-thumbs-o-up" style='color:white;' ></i> 
-							<%}%>
+							<%}%> 
+
+
+
+
+							
+
+
+							
+
 
 						</button>
 
@@ -94,9 +117,9 @@
 
 
 	<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src='/js/like.js'></script>
 <script type="text/javascript" src='/js/sticky.js'></script>
-
+ -->
 </body>
 </html>

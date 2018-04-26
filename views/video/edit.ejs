@@ -1,32 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Vide-ojo</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
+
 	<!-- links to other pages -->
-	<div id="editNav" >
+	<nav class="nav" >
 		<a href="/index">Home</a>
 		<a href="/show">My Videos</a>
 		<a href="/logout">Log Out</a>
-	</div>
+	</nav>
 	
-	<header>Edit Video Info</header>
+		<!-- Page Title -->
+	<h1 class='pageTitle'>Edit Video Info</h1>
 
 	<!-- form to edit video -->
-	<div id="editFormPage" >
+
+	<div id="editFormPage" class='vidContainer' >
+
+
+		
 		<form action="/video/<%=videoId%>?_method=PUT" method="POST">
-		Edit Video Title: <input type="text" name="title" placeholder="<%=title%>"> <br>
 
-		<div>
-			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
-		</div>
 
-		Edit Video Description: <textarea type='text' name="description" placeholder="<%=description%>"></textarea> <br/>
-		<button>Update</button>
-	</form>
+			<!-- Edit Title -->
+			<input type="text" name="title" placeholder="<%=title%>"> <br>
+
+
+			<!-- Video -->
+			<div>
+				<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+			</div>
+			
+
+			<!-- Edit Description -->
+			<textarea type='text' name="description" placeholder="<%=description%>" maxlength="140"></textarea> <br/>
+			<button class='thumbNailBtn'>Update</button>
+
+		</form>
 		
 	</div>
-</body>
-</html>

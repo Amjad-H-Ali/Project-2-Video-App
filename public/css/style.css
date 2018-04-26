@@ -10,6 +10,7 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
 }
 
 
@@ -19,6 +20,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    position: relative;
+    height: 400px;
 }
 
 
@@ -28,6 +31,9 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top:2%;
+    right: 2%;
 }
 
 /*When hovering on the close button*/
@@ -38,6 +44,7 @@
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .message {
     text-align: right;
     margin-right: 10%;
@@ -45,14 +52,81 @@
     padding-right: 5%;
 }
 
-#body {
+.modalTitle{
+    position: absolute;
+    width: 300px;
+    right:39%;
+
+}
+
+.modalBtn{
+    position: absolute;
+    bottom: 10%;
+    right:39%;
+    background-color:#2b78e4;
+    color:white; 
+}
+
+textarea{
+    overflow: auto;
+    resize: vertical;
+    width: 300px;
+    height: 130px;
+    
+}
+
+.modalDescription{
+    position: absolute;
+    bottom: 22%;
+    right: 39%;
+
+}
+
+#login-stuff {  
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+
+
+}
+#login-forms {
+    display: inline-flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-basis: 50%;
+
     background-color: white;
+    /*width: 49%;*/
+    height: 100vh;
+
+
+}
+
+#login-forms form {
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 600px;
+
+}
+#site-description {
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 50%;
+
+    height: 100%;
+    background-color: #2b78e4;
+
+    color: white;
 }
 
 #loginChild {
-    position: absolute;
-    right: 7%;
-    top: 5%;
+
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
     padding: 15px 15px 35px 15px;
@@ -60,13 +134,11 @@
 }
 
 .newChild {
-    position: absolute;
-    right: 8%;
-    bottom: 35%;
+
     border: 1px solid #eeeeee;
     background-color: #eeeeee;
     padding: 15px;
-/*    height: 45%;*/
+
 }
 
 .logInBtn {
@@ -82,9 +154,8 @@
 }
 
 #child {
-    position: absolute;
-    left: 5%;
-    top: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
 }
 
@@ -92,15 +163,9 @@
     margin: 5px;
 }
 
-.introP {
-    margin-top: 8%;
-}
-
-
 body {
-/*    background-color: #2b78e4;*/
+    background-color: #2b78e4;
     font-family:'Jua', sans-serif;
-
 }
 
 #body {
@@ -144,7 +209,12 @@ body {
    
 }
 
-.likeBtn:focus {
+
+.showLike{
+    padding-top: 6px;
+}
+
+button:focus {
     outline:none;
 }
 
@@ -184,7 +254,7 @@ body {
     margin:auto;
     font-size: 25px;
     color:#2b78e4;
-
+  
 }
 
 
@@ -206,8 +276,6 @@ body {
   
 }
 
-
-
 .postedBy {
     position: absolute;
     color:#2b78e4;
@@ -215,64 +283,79 @@ body {
     bottom:2%;
 }
 
-#body {
-    background-color: white;
-}
-
-#background {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 50%;
-    height: 100%;
-    background-color: #2b78e4;
-    z-index: 1;
-    color: white;
-}
-
-#loginChild {
-    position: absolute;
-    right: 7%;
-    top: 5%;
-    border: 1px solid #eeeeee;
-    background-color: #eeeeee;
-    padding: 15px 15px 35px 15px;
-
-}
-
-.newChild {
-    position: absolute;
-    right: 8%;
-    bottom: 35%;
-    border: 1px solid #eeeeee;
-    background-color: #eeeeee;
-    padding: 15px;
-/*    height: 45%;*/
-}
-
-.logInBtn {
-    background-color: #2b78e4;
-    color: white;
-}
-
-.signUpBtn {
-    background-color: #2b78e4;
-    color: white;
-    float: right;
-    margin: 5px;
-}
-
-#child {
-    position: absolute;
-    left: 5%;
-    top: 25%;
-    text-align: center;
-}
-
-#newTextBoxes {
-    margin: 5px;
+iframe{
+    height: 290px; 
+    width: 540px;
 }
 
 .introP {
     margin-top: 8%;
+    font-size: 20px;
+}
+
+.vidz{
+    position: absolute;
+    right: 5%;
+    top: 8%;
+    height: 390px; 
+    width: 540px;
+
+}
+
+.thumbNailBtn{
+
+    position: absolute;
+    bottom: 3%;
+    right: 5%;
+    background-color: #2b78e4;
+    color: white;
+
+}
+
+.searchField{
+    width:60%;
+    height:100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+}
+
+.search{
+  border-radius:15px;
+  border:none;
+  width: 60%;
+  height:35px;
+  padding-left: 25px;
+  margin-top:50px;
+
+}
+
+.searchBtn{
+  border-radius:5px 5px 5px 5px;
+  background-color: transparent;
+  border:none;
+  color:#333;
+  position: absolute;
+  top:55%;
+  right:21%;
+
+
+}
+
+.searchBtn:hover{
+    background-color: #eeeeee;
+
+}
+
+input:focus{
+    outline:none;
+}
+
+.editBtn{
+    color:white;
+    background-color: #2b78e4;
+    position: absolute;
+    bottom:3%;
+    left:5%;
 }

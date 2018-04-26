@@ -1,6 +1,6 @@
 
 //Event listener on like button
-$('.likeBtn').on('click', (e)=>{
+$('.likeBtn2').on('click', (e)=>{
 
 
 	//We use ajax to POST a like/unlike to our DB to prevent 'page reload' as when a post is made the conventional way. No one wants a reloading page when hitting the like button
