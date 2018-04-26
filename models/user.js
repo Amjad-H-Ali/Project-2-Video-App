@@ -38,10 +38,7 @@ const userSchema = new mongoose.Schema({
 
 
 
-	likedVideos:{
-		type: [String],
-
-	}
+	likedVideos:[Video.schema]
 
 
 

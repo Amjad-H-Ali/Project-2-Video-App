@@ -1,12 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<!-- links to other pages -->
-	<a href="/index">Home</a>
-	<header>Temporary message: like-videos page</header>
 
-</body>
-</html>
+
+	<!-- links to other pages -->
+	<nav class="nav" >
+		<a href="/index">Home</a>
+		<a href="/add">Post A Video</a>
+		<a href="/show">My Videos</a>
+		<a href="/logout">Log Out</a>
+	</nav>
+
+
+
+
+	<!-- Page Title -->
+	<h1 class='pageTitle'>My Liked Videos</h1>
+
+
+
+	<!-- Iterate through all vids in db associated to current user and show them on this page -->
+		<%for(let i = 0, len = user.likedVideos.length; i < len; i ++ ){%>
+
+			<!-- Video container -->
+			<div class="vidContainer">
+
+
+
+
+
+			<!-- Title of video -->
+			<h5 class=vidTitle><%=user.likedVideos[i].title%></h5>
+
+
+
+
+
+			<!-- Video -->
+			<iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=user.likedVideos[i].videoId%>?enablejsapi=1&origin=http://example.com" width="340" height="190" frameborder="0"></iframe>
+
+			
+
+
+			<!-- Description -->
+			<h6><%=user.likedVideos[i].description%></h6>
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+		<%}%>	
+
+
+
+
+	

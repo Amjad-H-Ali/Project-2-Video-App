@@ -61,15 +61,30 @@
 						<!-- like button -->
 						<button class='likeBtn likeBtn2' id='<%=videos[i].videoId%>'>
 
+							
+
+
+
+
+
+
+
 
 							<!-- if the vid is liked by user in DB, we want the like button to be filled -->
-							<% if( user.likedVideos.includes(videos[i].videoId) ){%>
+							<% if( (user.likedVideos.findIndex( element => element.videoId == videos[i].videoId)) >= 0  ){%>
 								 <i class="fa fa-thumbs-up" style='color:white;' ></i> 
 								 <!-- else unfill -->
 							<%}else{%> 
 								<i class="fa fa-thumbs-o-up" style='color:white;' ></i> 
-							<%}%>
+							<%}%> 
 
+
+
+
+							
+
+
+							
 
 
 						</button>

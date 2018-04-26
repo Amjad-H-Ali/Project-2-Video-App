@@ -41,27 +41,38 @@ router.get('/', (req, res)=>{
 //Get route to render index page
 router.get('/index', async(req, res)=>{
 
-	// Find all videos in DB so we can see them on index page
-	const videos = Video.find();
+	try{
+		// Find all videos in DB so we can see them on index page
+		const videos = Video.find();
 
 
-	//Find current user
-	const user = User.findOne({'userName': req.session.userName});
+		//Find current user
+		const user = User.findOne({'userName': req.session.userName});
 
 
-	const[foundVideos, foundUser] = await Promise.all([videos, user]);
+		const[foundVideos, foundUser] = await Promise.all([videos, user]);
+
+		
+
+		
 
 
-	// Send over current user and video properties to index page
-	res.render('user/index.ejs', {
+		// Send over current user and video properties to index page
+		res.render('user/index.ejs', {
 
-		userName: foundUser.userName,
-		firstName: foundUser.firstName,
-		lastName: foundUser.lastName,
-		user: foundUser,
-		videos: foundVideos
+			userName: foundUser.userName,
+			firstName: foundUser.firstName,
+			lastName: foundUser.lastName,
+			user: foundUser,
+			videos: foundVideos,
+			
 
-	});
+		});
+	}
+
+	catch(err){
+		console.log(err);
+	}	
 
 
 
@@ -95,23 +106,14 @@ router.get('/show', async(req, res)=>{
 
 
 
-
-
-
-
-//Get route to render edit page
-router.get('/edit', (req, res)=>{
-	res.render('user/edit.ejs');
-});
-
-
-
-
-
-
 //Get route to render liked-videos page
-router.get('/liked-videos', (req, res)=>{
-	res.render('user/liked-videos.ejs');
+router.get('/liked-videos', async(req, res)=>{
+
+	const foundUser = await User.findOne({'userName': req.session.userName});
+
+	res.render('user/liked-videos.ejs', {
+		user: foundUser
+	});
 });
 
 
@@ -246,8 +248,7 @@ router.post('/login', async(req, res, next)=>{
 router.post('/like', async(req, res, next)=>{
 	
 	try{
-		console.log(req.body.vidId);
-		console.log(req.body.liked);
+
 
 		//find current user
 		const findUser = User.findOne({'userName':req.session.userName});
@@ -267,33 +268,30 @@ router.post('/like', async(req, res, next)=>{
 		// If the vid is liked, add to array in DB
 		if(req.body.liked == 'true'){
 			//Add to likedVids array in user model
-			foundUser.likedVideos.push(req.body.vidId);
+			foundUser.likedVideos.push(foundVid);
 
 			//Also, increment the number of likes in the video model
-			foundVid.likes +=1;
+			foundVid.likes ++;
 
-			//Also , increment the number of likes in user video array
-			// foundUser.videos.id(foundVid._id).likes +=1;
+			
 		}
 
 
 		else{
 
-			//Get the index of the unliked video in array
-			const index = foundUser.likedVideos.indexOf(req.body.vidId);
+			// //Get the index of the unliked video in array
+			// const index = foundUser.likedVideos.indexOf(req.body.vidId);
 			
-			//Remove it from the array in the DB
-			foundUser.likedVideos.splice(index, 1);
-			
+			// //Remove it from the array in the DB
+			// foundUser.likedVideos.splice(index, 1);
 
-
-
-			// foundUser.likedVideos.id(foundVid._id).remove();
+			foundUser.likedVideos.id(foundVid._id).remove();
+	
 
 
 
 			//Also, decrement the number of likes in the video model
-			foundVid.likes -=1;
+			foundVid.likes --;
 
 		}
 
@@ -325,7 +323,7 @@ router.post('/like', async(req, res, next)=>{
 
 
 
-
+// Delete current user videos
 router.delete('/:id', async(req, res)=>{
 
 	const findVideo = Video.findOne({'videoId': req.params.id});
