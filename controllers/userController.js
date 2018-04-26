@@ -93,10 +93,32 @@ router.get('/show', async(req, res)=>{
 
 
 
+//Get route to render other users' show pages from index page
+router.get('/show/:id', async(req, res)=>{
+
+	//find user by username
+	const userName = req.params.id
+
+	//Find all the videos posted by this user
+	const videos = await Video.find({'user': userName});
+
+	// const videos = Video.find();
+
+	console.log("=================")
+	console.log(userName + " this is userName");
+	console.log("=================")
+	console.log("=================")
+	console.log(videos + " this is videos");
+	console.log("=================")
+
+	//Sending current user to another user's show page
+	res.render('user/otherShow.ejs', {
+
+		videos: videos
+	});
 
 
-
-
+});
 
 
 
