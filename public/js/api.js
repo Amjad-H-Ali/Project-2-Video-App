@@ -55,7 +55,7 @@ function getVideos(data) {
 
 
 		//Adding videoId as the src for iframe to make the video thumbnails appear
-		const video = $('<iframe>').attr('src', "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com").attr('class', 'vidz');
+		const video = $('<iframe>').attr('src', "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&origin=http://example.com").attr('class', 'vidz');
 
 
 		//Append videos to the div with a button
