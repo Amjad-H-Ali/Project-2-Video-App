@@ -1,3 +1,4 @@
+require('dotenv').config()
 //Require express for server
 const express = require('express');
 // Instantiate app with express constructor
@@ -74,9 +75,7 @@ app.use('/video', videoController);
 
 
 
-
-
 //Set up server to listen on PORT 3000
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
 	console.log(`Server is listening on ${PORT}...`);
 })

@@ -1,7 +1,7 @@
 //Require mongoose to connect schema with our DB
 const mongoose = require('mongoose');
 //Defining variable to connect mongoose with MongoDB and naming DB
-connectionString = 'mongodb://localhost/videoApp';
+connectionString = process.env.DB_HOST;
 //Connected mongoose to our DB
 mongoose.connect(connectionString);
 
