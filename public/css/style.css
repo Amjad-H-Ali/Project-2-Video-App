@@ -50,6 +50,7 @@
     margin-right: 10%;
     margin-left: 60%;
     padding-right: 5%;
+  
 }
 
 .modalTitle{
@@ -86,6 +87,7 @@ textarea{
     height: 100vh;
     display: flex;
     flex-direction: row;
+
 
 
 
