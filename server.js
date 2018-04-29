@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 
 
@@ -77,9 +78,8 @@ app.use('/video', videoController);
 
 
 
-
-
 //Set up server to listen on PORT 3000
-app.listen ( process.env.PORT || PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
+
 	console.log(`Server is listening on ${PORT}...`);
 })
