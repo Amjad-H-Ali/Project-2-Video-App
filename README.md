@@ -32,9 +32,12 @@ Our site connects to youtube's API in order to search videos.
 
 ## Technologies Used:
 - Nodejs / Express
-- API connection
+- MongoDB 
+- Mongoose
+- YouTube API
 - Ajax
 - JavaScript / jQuery
+- EJS
 - CSS
 
 ## Problems Overcame:
