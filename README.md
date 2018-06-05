@@ -39,6 +39,7 @@ Our site connects to youtube's API in order to search videos.
 - JavaScript / jQuery
 - EJS
 - CSS
+- Sessions
 
 ## Problems Overcame:
 - Working together to review any merge conflicts.
